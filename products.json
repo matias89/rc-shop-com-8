@@ -1,0 +1,317 @@
+[
+    {
+        "id": 1,
+        "category": "phones",
+        "brand": "Apple",
+        "model": "I Phone X",
+        "color": "white",
+        "price": 60000,
+        "discount": 0,
+        "description": "",
+        "images": ["./images/i-phone-x/iphonex-1.jpg", "./images/i-phone-x/iphonex-2.jpg", "./images/i-phone-x/iphonex-3.jpg", "./images/i-phone-x/iphonex-4.jpg"],
+        "details": {
+            "Camera": "32 Mp",
+            "RAM": "8GB",
+            "ROM": "64GB"
+        },
+        "payment": {
+            "payments": 6,
+            "price-payment": 10000,
+            "free-interest": true
+        }
+    },
+    {
+        "id": 2,
+        "category": "phones",
+        "brand": "Motorola",
+        "model": "G7",
+        "color": "black",
+        "price": 15000,
+        "discount": 10,
+        "description": "",
+        "images": ["./images/motorola/motorola-g7-1.jpg", "./images/motorola/motorola-g7-2.jpg", "./images/motorola/motorola-g7-3.jpg", "./images/motorola/motorola-g7-4.jpg"],
+        "details": {
+            "Camera": "8 Mp",
+            "RAM": "2GB",
+            "ROM": "16GB"
+        },
+        "payment": {
+            "payments": 3,
+            "price-payment": 5000,
+            "free-interest": true
+        }
+    },
+    {
+        "id": 3,
+        "category": "phones",
+        "brand": "Samsung",
+        "model": "Galaxy A30",
+        "color": "gray",
+        "price": 24000,
+        "discount": 0,
+        "description": "",
+        "images": ["./images/samsung-a30/samsung-a30-1.jpg", "./images/samsung-a30/samsung-a30-2.jpg", "./images/samsung-a30/samsung-a30-3.jpg", "./images/samsung-a30/samsung-a30-4.jpg"],
+        "details": {
+            "Camera": "16 Mp",
+            "RAM": "4GB",
+            "ROM": "32GB"
+        },
+        "payment": {
+            "payments": 3,
+            "price-payment": 8000,
+            "free-interest": true
+        }
+    },
+    {
+        "id": 4,
+        "category": "phones",
+        "brand": "Nokia",
+        "model": "7.1",
+        "color": "blue",
+        "price": 25000,
+        "discount": 30,
+        "description": "",
+        "images": ["./images/nokia-71/nokia-71-1.jpg", "./images/nokia-71/nokia-71-2.jpg", "./images/nokia-71/nokia-71-3.jpg", "./images/nokia-71/nokia-71-4.jpg"],
+        "details": {
+            "Camera": "16 Mp",
+            "RAM": "2GB",
+            "ROM": "32GB"
+        },
+        "payment": {
+            "payments": 12,
+            "price-payment": 2084,
+            "free-interest": true
+        }
+    },
+    {
+        "id": 5,
+        "category": "phones",
+        "brand": "LG",
+        "model": "G7 ThinQ",
+        "color": "red",
+        "price": 30000,
+        "discount": 10,
+        "description": "",
+        "images": ["./images/lg-g7/lg-g7-1.jpg", "./images/lg-g7/lg-g7-2.jpg", "./images/lg-g7/lg-g7-3.jpg", "./images/lg-g7/lg-g7-4.jpg"],
+        "details": {
+            "Camera": "24 Mp",
+            "RAM": "4GB",
+            "ROM": "64GB"
+        },
+        "payment": {
+            "payments": 6,
+            "price-payment": 5000,
+            "free-interest": true
+        }
+    },
+    {
+        "id": 6,
+        "category": "laptop",
+        "brand": "",
+        "model": 2,
+        "price":  584,
+        "discount": "20%",
+        "images": [],
+        "payment": {
+            "payments": 6,
+            "price-payment": 1200,
+            "free-interest": true
+        }
+    },
+    {
+        "id": 7,
+        "category": "laptop",
+        "brand": "",
+        "model": 2,
+        "price":  584,
+        "discount": "20%",
+        "images": [],
+        "payment": {
+            "payments": 6,
+            "price-payment": 1200,
+            "free-interest": true
+        }
+    },
+    {
+        "id": 8,
+        "category": "laptop",
+        "brand": "",
+        "model": 2,
+        "price":  584,
+        "discount": "20%",
+        "images": [],
+        "payment": {
+            "payments": 6,
+            "price-payment": 1200,
+            "free-interest": true
+        }
+    },
+    {
+        "id": 9,
+        "category": "laptop",
+        "brand": "",
+        "model": 2,
+        "price":  584,
+        "discount": "20%",
+        "images": [],
+        "payment": {
+            "payments": 6,
+            "price-payment": 1200,
+            "free-interest": true
+        }
+    },
+    {
+        "id": 10,
+        "category": "laptop",
+        "brand": "",
+        "model": 2,
+        "price":  584,
+        "discount": "20%",
+        "images": [],
+        "payment": {
+            "payments": 6,
+            "price-payment": 1200,
+            "free-interest": true
+        }
+    },
+    {
+        "id": 11,
+        "category": "tv",
+        "brand": "",
+        "model": 2,
+        "price":  584,
+        "discount": "20%",
+        "images": [],
+        "payment": {
+            "payments": 6,
+            "price-payment": 1200,
+            "free-interest": true
+        }
+    },
+    {
+        "id": 12,
+        "category": "tv",
+        "brand": "",
+        "model": 2,
+        "price":  584,
+        "discount": "20%",
+        "images": [],
+        "payment": {
+            "payments": 6,
+            "price-payment": 1200,
+            "free-interest": true
+        }
+    },
+    {
+        "id": 13,
+        "category": "tv",
+        "brand": "",
+        "model": 2,
+        "price":  584,
+        "discount": "20%",
+        "images": [],
+        "payment": {
+            "payments": 6,
+            "price-payment": 1200,
+            "free-interest": true
+        }
+    },
+    {
+        "id": 14,
+        "category": "tv",
+        "brand": "",
+        "model": 2,
+        "price":  584,
+        "discount": "20%",
+        "images": [],
+        "payment": {
+            "payments": 6,
+            "price-payment": 1200,
+            "free-interest": true
+        }
+    },
+    {
+        "id": 15,
+        "category": "tv",
+        "brand": "",
+        "model": 2,
+        "price":  584,
+        "discount": "20%",
+        "images": [],
+        "payment": {
+            "payments": 6,
+            "price-payment": 1200,
+            "free-interest": true
+        }
+    },
+    {
+        "id": 16,
+        "category": "kitchen",
+        "brand": "",
+        "model": 2,
+        "price":  584,
+        "discount": "20%",
+        "images": [],
+        "payment": {
+            "payments": 6,
+            "price-payment": 1200,
+            "free-interest": true
+        }
+    },
+    {
+        "id": 17,
+        "category": "kitchen",
+        "brand": "",
+        "model": 2,
+        "price":  584,
+        "discount": "20%",
+        "images": [],
+        "payment": {
+            "payments": 6,
+            "price-payment": 1200,
+            "free-interest": true
+        }
+    },
+    {
+        "id": 18,
+        "category": "kitchen",
+        "brand": "",
+        "model": 2,
+        "price":  584,
+        "discount": "20%",
+        "images": [],
+        "payment": {
+            "payments": 6,
+            "price-payment": 1200,
+            "free-interest": true
+        }
+    },
+    {
+        "id": 19,
+        "category": "kitchen",
+        "brand": "",
+        "model": 2,
+        "price":  584,
+        "discount": "20%",
+        "images": [],
+        "payment": {
+            "payments": 6,
+            "price-payment": 1200,
+            "free-interest": true
+        }
+    },
+    {
+        "id": 20,
+        "category": "kitchen",
+        "brand": "",
+        "model": 2,
+        "price":  584,
+        "discount": "20%",
+        "images": [],
+        "payment": {
+            "payments": 6,
+            "price-payment": 1200,
+            "free-interest": true
+        }
+    }
+]
