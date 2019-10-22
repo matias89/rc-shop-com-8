@@ -16,8 +16,8 @@
         },
         "payment": {
             "payments": 6,
-            "price-payment": 10000,
-            "free-interest": true
+            "price_payment": 10000,
+            "free_interest": true
         }
     },
     {
@@ -37,8 +37,8 @@
         },
         "payment": {
             "payments": 3,
-            "price-payment": 5000,
-            "free-interest": true
+            "price_payment": 5000,
+            "free_interest": true
         }
     },
     {
@@ -58,8 +58,8 @@
         },
         "payment": {
             "payments": 3,
-            "price-payment": 8000,
-            "free-interest": true
+            "price_payment": 8000,
+            "free_interest": true
         }
     },
     {
@@ -79,8 +79,8 @@
         },
         "payment": {
             "payments": 12,
-            "price-payment": 2084,
-            "free-interest": true
+            "price_payment": 2084,
+            "free_interest": true
         }
     },
     {
@@ -100,8 +100,8 @@
         },
         "payment": {
             "payments": 6,
-            "price-payment": 5000,
-            "free-interest": true
+            "price_payment": 5000,
+            "free_interest": true
         }
     },
     {
@@ -119,8 +119,8 @@
         },
         "payment": {
             "payments": 12,
-            "price-payment": 10000,
-            "free-interest": false
+            "price_payment": 10000,
+            "free_interest": false
         }
     },
     {
@@ -138,8 +138,8 @@
         },
         "payment": {
             "payments": 3,
-            "price-payment": 10000,
-            "free-interest": true
+            "price_payment": 10000,
+            "free_interest": true
         }
     },
     {
@@ -157,8 +157,8 @@
         },
         "payment": {
             "payments": 12,
-            "price-payment": 3166,
-            "free-interest": true
+            "price_payment": 3166,
+            "free_interest": true
         }
     },
     {
@@ -176,8 +176,8 @@
         },
         "payment": {
             "payments": 6,
-            "price-payment": 7500,
-            "free-interest": false
+            "price_payment": 7500,
+            "free_interest": false
         }
     },
     {
@@ -195,8 +195,8 @@
         },
         "payment": {
             "payments": 18,
-            "price-payment": 7200,
-            "free-interest": true
+            "price_payment": 7200,
+            "free_interest": true
         }
     },
     {
@@ -214,8 +214,8 @@
         },
         "payment": {
             "payments": 6,
-            "price-payment": 4000,
-            "free-interest": false
+            "price_payment": 4000,
+            "free_interest": false
         }
     },
     {
@@ -233,8 +233,8 @@
         },
         "payment": {
             "payments": 9,
-            "price-payment": 6500,
-            "free-interest": false
+            "price_payment": 6500,
+            "free_interest": false
         }
     },
     {
@@ -252,8 +252,8 @@
         },
         "payment": {
             "payments": 6,
-            "price-payment": 5000,
-            "free-interest": false
+            "price_payment": 5000,
+            "free_interest": false
         }
     },
     {
@@ -271,8 +271,8 @@
         },
         "payment": {
             "payments": 3,
-            "price-payment": 4000,
-            "free-interest": true
+            "price_payment": 4000,
+            "free_interest": true
         }
     },
     {
@@ -290,8 +290,8 @@
         },
         "payment": {
             "payments": 3,
-            "price-payment": 5000,
-            "free-interest": false
+            "price_payment": 5000,
+            "free_interest": false
         }
     },
     {
@@ -310,8 +310,8 @@
         },
         "payment": {
             "payments": 3,
-            "price-payment": 5000,
-            "free-interest": false
+            "price_payment": 5000,
+            "free_interest": false
         }
     },
     {
@@ -330,8 +330,8 @@
         },
         "payment": {
             "payments": 6,
-            "price-payment": 3500,
-            "free-interest": false
+            "price_payment": 3500,
+            "free_interest": false
         }
     },
     {
@@ -350,8 +350,8 @@
         },
         "payment": {
             "payments": 9,
-            "price-payment": 6000,
-            "free-interest": false
+            "price_payment": 6000,
+            "free_interest": false
         }
     },
     {
@@ -370,8 +370,8 @@
         },
         "payment": {
             "payments": 3,
-            "price-payment": 7000,
-            "free-interest": true
+            "price_payment": 7000,
+            "free_interest": true
         }
     },
     {
@@ -390,8 +390,8 @@
         },
         "payment": {
             "payments": 6,
-            "price-payment": 3000,
-            "free-interest": false
+            "price_payment": 3000,
+            "free_interest": false
         }
     }
 ]
