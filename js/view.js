@@ -35,9 +35,8 @@ const view = (shop => {
     }
     return {
         testMethod;
-        element;
+        createElement;
     }
 })(shop);
 
 view.testMethod();
-view.createElement();
