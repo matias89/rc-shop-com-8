@@ -7,7 +7,7 @@
         "price": 60000,
         "discount": 0,
         "description": "",
-        "images": ["./i-phone-x/iphonex-1.jpg", "./i-phone-x/iphonex-2.jpg", "./i-phone-x/iphonex-3.jpg", "./i-phone-x/iphonex-4.jpg"],
+        "images": ["./iphone_x/iphonex_1.jpg", "./iphone_x/iphonex_2.jpg", "./iphone_x/iphonex_3.jpg", "./iphone_x/iphonex_4.jpg"],
         "details": {
             "camera": "32 Mp",
             "color": "white",
@@ -16,8 +16,8 @@
         },
         "payment": {
             "payments": 6,
-            "price-payment": 10000,
-            "free-interest": true
+            "price_payment": 10000,
+            "free_interest": true
         }
     },
     {
@@ -28,7 +28,7 @@
         "price": 15000,
         "discount": 10,
         "description": "",
-        "images": ["./motorola/motorola-g7-1.jpg", "./motorola/motorola-g7-2.jpg", "./motorola/motorola-g7-3.jpg", "./motorola/motorola-g7-4.jpg"],
+        "images": ["./motorola/motorola_g7_1.jpg", "./motorola/motorola_g7_2.jpg", "./motorola/motorola_g7_3.jpg", "./motorola/motorola_g7_4.jpg"],
         "details": {
             "camera": "8 Mp",
             "color": "black",
@@ -37,8 +37,8 @@
         },
         "payment": {
             "payments": 3,
-            "price-payment": 5000,
-            "free-interest": true
+            "price_payment": 5000,
+            "free_interest": true
         }
     },
     {
@@ -49,7 +49,7 @@
         "price": 24000,
         "discount": 0,
         "description": "",
-        "images": ["./samsung-a30/samsung-a30-1.jpg", "./samsung-a30/samsung-a30-2.jpg", "./samsung-a30/samsung-a30-3.jpg", "./samsung-a30/samsung-a30-4.jpg"],
+        "images": ["./samsung_a30/samsung_a30_1.jpg", "./samsung_a30/samsung_a30_2.jpg", "./samsung_a30/samsung_a30_3.jpg", "./samsung_a30/samsung_a30_4.jpg"],
         "details": {
             "camera": "16 Mp",
             "color": "gray",
@@ -58,8 +58,8 @@
         },
         "payment": {
             "payments": 3,
-            "price-payment": 8000,
-            "free-interest": true
+            "price_payment": 8000,
+            "free_interest": true
         }
     },
     {
@@ -70,7 +70,7 @@
         "price": 25000,
         "discount": 30,
         "description": "",
-        "images": ["./nokia-71/nokia-71-1.jpg", "./nokia-71/nokia-71-2.jpg", "./nokia-71/nokia-71-3.jpg", "./nokia-71/nokia-71-4.jpg"],
+        "images": ["./nokia_71/nokia_71-1.jpg", "./nokia_71/nokia_71_2.jpg", "./nokia_71/nokia_71_3.jpg", "./nokia_71/nokia_71_4.jpg"],
         "details": {
             "camera": "16 Mp",
             "color": "blue",
@@ -79,8 +79,8 @@
         },
         "payment": {
             "payments": 12,
-            "price-payment": 2084,
-            "free-interest": true
+            "price_payment": 2084,
+            "free_interest": true
         }
     },
     {
@@ -91,7 +91,7 @@
         "price": 30000,
         "discount": 10,
         "description": "",
-        "images": ["./lg-g7/lg-g7-1.jpg", "./lg-g7/lg-g7-2.jpg", "./lg-g7/lg-g7-3.jpg", "./lg-g7/lg-g7-4.jpg"],
+        "images": ["./lg_g7/lg_g7_1.jpg", "./lg_g7/lg_g7_2.jpg", "./lg_g7/lg_g7_3.jpg", "./lg_g7/lg_g7_4.jpg"],
         "details": {
             "camera": "24 Mp",
             "color": "red",
@@ -100,8 +100,8 @@
         },
         "payment": {
             "payments": 6,
-            "price-payment": 5000,
-            "free-interest": true
+            "price_payment": 5000,
+            "free_interest": true
         }
     },
     {
@@ -112,15 +112,15 @@
         "price":  105000,
         "discount": 30,
         "description": "",
-        "images": ["./dell/dell-1.jpg", "./dell/dell-2.jpg", "./dell/dell-3.jpg", "./dell/dell-4.jpg"],
+        "images": ["./dell/dell_1.jpg", "./dell/dell_2.jpg", "./dell/dell_3.jpg", "./dell/dell_4.jpg"],
         "details": {
             "RAM": "32GB",
             "ROM": "480GB"
         },
         "payment": {
             "payments": 12,
-            "price-payment": 10000,
-            "free-interest": false
+            "price_payment": 10000,
+            "free_interest": false
         }
     },
     {
@@ -131,15 +131,15 @@
         "price":  30000,
         "discount": 0,
         "description": "",
-        "images": ["./hp/hp-1.jpg", "./hp/hp-2.jpg", "./hp/hp-3.jpg", "./hp/hp-4.jpg"],
+        "images": ["./hp/hp_1.jpg", "./hp/hp_2.jpg", "./hp/hp_3.jpg", "./hp/hp_4.jpg"],
         "details": {
             "RAM": "4GB",
             "ROM": "1TB"
         },
         "payment": {
             "payments": 3,
-            "price-payment": 10000,
-            "free-interest": true
+            "price_payment": 10000,
+            "free_interest": true
         }
     },
     {
@@ -150,34 +150,34 @@
         "price":  38000,
         "discount": 10,
         "description": "",
-        "images": ["./lenovo/lenovo-1.jpg", "./lenovo/lenovo-2.jpg", "./lenovo/lenovo-3.jpg", "./lenovo/lenovo-4.jpg"],
+        "images": ["./lenovo/lenovo_1.jpg", "./lenovo/lenovo_2.jpg", "./lenovo/lenovo_3.jpg", "./lenovo/lenovo_4.jpg"],
         "details": {
             "RAM": "4GB",
             "ROM": "1TB"
         },
         "payment": {
             "payments": 12,
-            "price-payment": 3166,
-            "free-interest": true
+            "price_payment": 3166,
+            "free_interest": true
         }
     },
     {
         "id": 9,
         "category": "laptop",
         "brand": "Asus",
-        "model": "X-54",
+        "model": "X 54",
         "price":  35000,
         "discount": 15,
         "description": "",
-        "images": ["./asus/asus-1.jpg", "./asus/asus-2.jpg", "./asus/asus-3.jpg", "./asus/asus-4.jpg"],
+        "images": ["./asus/asus_1.jpg", "./asus/asus_2.jpg", "./asus/asus_3.jpg", "./asus/asus_4.jpg"],
         "details": {
             "RAM": "4GB",
             "ROM": "1TB"
         },
         "payment": {
             "payments": 6,
-            "price-payment": 7500,
-            "free-interest": false
+            "price_payment": 7500,
+            "free_interest": false
         }
     },
     {
@@ -188,15 +188,15 @@
         "price":  130000,
         "discount": 0,
         "description": "",
-        "images": ["./macbook/macbook-1.jpg", "./macbook/macbook-2.jpg", "./macbook/macbook-3.jpg", "./macbook/macbook-4.jpg"],
+        "images": ["./macbook/macbook_1.jpg", "./macbook/macbook_2.jpg", "./macbook/macbook_3.jpg", "./macbook/macbook_4.jpg"],
         "details": {
             "RAM": "8GB",
             "ROM": "1TB"
         },
         "payment": {
             "payments": 18,
-            "price-payment": 7200,
-            "free-interest": true
+            "price_payment": 7200,
+            "free_interest": true
         }
     },
     {
@@ -207,15 +207,15 @@
         "price":  19000,
         "discount": 10,
         "description": "",
-        "images": [".phillips-tv/phillips-1.jpg", ".phillips-tv/phillips-2.jpg", ".phillips-tv/phillips-3.jpg", ".phillips-tv/phillips-4.jpg"],
+        "images": [".phillips_tv/phillips_1.jpg", ".phillips_tv/phillips_2.jpg", ".phillips_tv/phillips_3.jpg", ".phillips_tv/phillips_4.jpg"],
         "details": {
             "inches": 43,
             "hd": true
         },
         "payment": {
             "payments": 6,
-            "price-payment": 4000,
-            "free-interest": false
+            "price_payment": 4000,
+            "free_interest": false
         }
     },
     {
@@ -226,15 +226,15 @@
         "price":  34000,
         "discount": 30,
         "description": "",
-        "images": ["/samsung-tv/samsung-1.jpg", "./samsung-tv/samsung-2.jpg", "./samsung-tv/samsung-3.jpg", "./samsung-tv/samsung-4.jpg"],
+        "images": ["/samsungtv/samsung_1.jpg", "./samsungtv/samsung_2.jpg", "./samsungtv/samsung_3.jpg", "./samsungtv/samsung_4.jpg"],
         "details": {
             "inches": 50,
             "hd": true
         },
         "payment": {
             "payments": 9,
-            "price-payment": 6500,
-            "free-interest": false
+            "price_payment": 6500,
+            "free_interest": false
         }
     },
     {
@@ -245,15 +245,15 @@
         "price":  28000,
         "discount": 0,
         "description": "",
-        "images": ["./lg-tv/lg-1.jpg", "./lg-tv/lg-2.jpg", "./lg-tv/lg-3.jpg", "./lg-tv/lg-4.jpg"],
+        "images": ["./lg_tv/lg_1.jpg", "./lg_tv/lg_2.jpg", "./lg_tv/lg_3.jpg", "./lg_tv/lg_4.jpg"],
         "details": {
             "inches": 43,
             "hd": true
         },
         "payment": {
             "payments": 6,
-            "price-payment": 5000,
-            "free-interest": false
+            "price_payment": 5000,
+            "free_interest": false
         }
     },
     {
@@ -264,15 +264,15 @@
         "price": 12000,
         "discount": 0,
         "description": "",
-        "images": ["./noblex-tv/noblex-1.jpg", "./noblex-tv/noblex-2.jpg", "./noblex-tv/noblex-3.jpg", "./noblex-tv/noblex-4.jpg"],
+        "images": ["./noblextv/noblex_1.jpg", "./noblextv/noblex_2.jpg", "./noblextv/noblex_3.jpg", "./noblextv/noblex_4.jpg"],
         "details": {
             "inches": 32,
             "hd": true
         },
         "payment": {
             "payments": 3,
-            "price-payment": 4000,
-            "free-interest": true
+            "price_payment": 4000,
+            "free_interest": true
         }
     },
     {
@@ -283,15 +283,15 @@
         "price":  13000,
         "discount": 10,
         "description": "",
-        "images": ["./hitachi/hitachi-1.jpg", "./hitachi/hitachi-2.jpg", "./hitachi/hitachi-3.jpg", "./hitachi/hitachi-4.jpg"],
+        "images": ["./hitachi/hitachi_1.jpg", "./hitachi/hitachi_2.jpg", "./hitachi/hitachi_3.jpg", "./hitachi/hitachi_4.jpg"],
         "details": {
             "inches": 32,
             "hd": true
         },
         "payment": {
             "payments": 3,
-            "price-payment": 5000,
-            "free-interest": false
+            "price_payment": 5000,
+            "free_interest": false
         }
     },
     {
@@ -302,7 +302,7 @@
         "price":  12000,
         "discount": 15,
         "description": "",
-        "images": ["./escorial/master-1.jpg", "./escorial/master-2.jpg", "./escorial/master-3.jpg", "./escorial/master-4.jpg"],
+        "images": ["./escorial/master_1.jpg", "./escorial/master_2.jpg", "./escorial/master_3.jpg", "./escorial/master_4.jpg"],
         "details": {
             "color": ["white", "black"],
             "height": "85 cm",
@@ -310,8 +310,8 @@
         },
         "payment": {
             "payments": 3,
-            "price-payment": 5000,
-            "free-interest": false
+            "price_payment": 5000,
+            "free_interest": false
         }
     },
     {
@@ -322,7 +322,7 @@
         "price":  17000,
         "discount": 0,
         "description": "",
-        "images": ["./domec/florencia-1.jpg", "./domec/florencia-2.jpg", "./domec/florencia-3.jpg", "./domec/florencia-4.jpg"],
+        "images": ["./domec/florencia_1.jpg", "./domec/florencia_2.jpg", "./domec/florencia_3.jpg", "./domec/florencia_4.jpg"],
         "details": {
             "color": ["white", "black"],
             "height": "85 cm",
@@ -330,8 +330,8 @@
         },
         "payment": {
             "payments": 6,
-            "price-payment": 3500,
-            "free-interest": false
+            "price_payment": 3500,
+            "free_interest": false
         }
     },
     {
@@ -342,7 +342,7 @@
         "price":  44000,
         "discount": 0,
         "description": "",
-        "images": ["./longvie/longvie-1.jpg", "./longvie/longvie-2.jpg", "./longvie/longvie-3.jpg", "./longvie/longvie-4.jpg"],
+        "images": ["./longvie/longvie_1.jpg", "./longvie/longvie_2.jpg", "./longvie/longvie_3.jpg", "./longvie/longvie_4.jpg"],
         "details": {
             "color": ["gray", "black"],
             "height": "85 cm",
@@ -350,8 +350,8 @@
         },
         "payment": {
             "payments": 9,
-            "price-payment": 6000,
-            "free-interest": false
+            "price_payment": 6000,
+            "free_interest": false
         }
     },
     {
@@ -362,7 +362,7 @@
         "price":  21000,
         "discount": 10,
         "description": "",
-        "images": ["./orbis/macrovision-1.jpg", "./orbis/macrovision-2.jpg", "./orbis/macrovision-3.jpg", "./orbis/macrovision-4.jpg"],
+        "images": ["./orbis/macrovision_1.jpg", "./orbis/macrovision_2.jpg", "./orbis/macrovision_3.jpg", "./orbis/macrovision_4.jpg"],
         "details": {
             "color": ["black", "white"],
             "height": "86 cm",
@@ -370,8 +370,8 @@
         },
         "payment": {
             "payments": 3,
-            "price-payment": 7000,
-            "free-interest": true
+            "price_payment": 7000,
+            "free_interest": true
         }
     },
     {
@@ -382,7 +382,7 @@
         "price":  17000,
         "discount": 0,
         "description": "",
-        "images": ["./volcan/multigas-1.jpg", "./volcan/multigas-2.jpg", "./volcan/multigas-3.jpg", "./volcan/multigas-4.jpg"],
+        "images": ["./volcan/multigas_1.jpg", "./volcan/multigas_2.jpg", "./volcan/multigas_3.jpg", "./volcan/multigas_4.jpg"],
         "details": {
             "color": ["black", "white"],
             "height": "86 cm",
@@ -390,8 +390,8 @@
         },
         "payment": {
             "payments": 6,
-            "price-payment": 3000,
-            "free-interest": false
+            "price_payment": 3000,
+            "free_interest": false
         }
     }
 ]
