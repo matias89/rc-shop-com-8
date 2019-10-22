@@ -4,9 +4,40 @@ const view = (shop => {
         const hw = shop.testMethod(); // M<ethod from 'shop' module
         console.log(hw);
     }
+    const createElement = (elementType, id, className, events, placeholder, content ) => {
+        const element = document.createElement(elementType);
+        element.innerText= content;
+        if (events.length) {
+            for (let i = 0; i < events.length; i++) {
+                const event = events[i];
+                element[event.type] = event.method;
+            }
+        }
+        if (placeholder) {
+            element.placeholder = placeholder;
+        }
+        if (id) {
+            element.id = id;
+        }
+        if (className) {
+            element.className = className;
+        }
+        if (elementType === 'input') {
+            element.placeholder = placeholder ;
+            element.id = id;
+        } else if (elementType === 'label') {
+            element.for = id;
+        }
+        if (elementType === 'p' || elementType === 'h1' || elementType === 'h2' || elementType === 'h3' ||
+             elementType === 'h4' || elementType === 'h5' || elementType === 'h6' || elementType === 'a') {
+            element.innerHTML = content;
+        }
+    }
     return {
-        testMethod
+        testMethod;
+        element;
     }
 })(shop);
 
 view.testMethod();
+view.createElement();
