@@ -39,4 +39,24 @@ const view = (shop => {
     }
 })(shop);
 
+const addCard = () => {
+    const cardContainer = document.getElementById('card');
+    const cardDeck = createCards();
+    cardContainer.appendChild(createCards);
+}
+
+const createCards = () => {
+    const card  = createElement('div', '', 'card', '', '');
+    const img   = createElement('img', '', 'card-img-top','', '');
+    const cardB = createElement('div', '', 'card-body', '', '');
+    const title = createElement('h5', '', 'card-title', '', 'Titulo de la card');
+    const text  = createElement('p','','card-text', '', 'Contenido de la card');
+    const textS = createElement('small', '', 'text-muted', '', 'Texto small');
+    card.appendChild(img);
+    card.appendChild(cardB);
+    card.appendChild(title);
+    card.appendChild(text);
+    card.appendChild(textS);
+}
+
 view.testMethod();
