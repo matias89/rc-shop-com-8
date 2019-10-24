@@ -1,3 +1,4 @@
+const _body = document.getElementsByTagName('body');
 const view = (shop => {
     const testMethod = () => {
         console.log('Testing view!');
@@ -29,14 +30,24 @@ const view = (shop => {
             element.for = id;
         }
         if (elementType === 'p' || elementType === 'h1' || elementType === 'h2' || elementType === 'h3' ||
-             elementType === 'h4' || elementType === 'h5' || elementType === 'h6' || elementType === 'a') {
+            elementType === 'h4' || elementType === 'h5' || elementType === 'h6' || elementType === 'a') {
             element.innerHTML = content;
         }
     }
+
+    function createModal(container, row, col, modal, ) {
+       const _modalContainer = createElement('div', 'modalContainer', 'container', false);
+       const _rowContainer = createElement('div', '', 'row', false);
+       const _colContainer = createElement('div', '', 'col-6', false);
+       console.log(_modalContainer)
+    }
+
     return {
-        testMethod;
-        createElement;
+        testMethod,
+        createElement,
+        createModal
     }
 })(shop);
 
 view.testMethod();
+view.createModal();
