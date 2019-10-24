@@ -1,5 +1,6 @@
-const _body = document.getElementsByTagName('body');
 const view = (shop => {
+    //Select modal container in detail HTML
+    const _modalContainer = document.getElementById('modalContainer');
     const testMethod = () => {
         console.log('Testing view!');
         const hw = shop.testMethod(); // M<ethod from 'shop' module
@@ -33,18 +34,25 @@ const view = (shop => {
             elementType === 'h4' || elementType === 'h5' || elementType === 'h6' || elementType === 'a') {
             element.innerHTML = content;
         }
+        return element;
     }
-
-    function createModal(container, row, col, modal, ) {
-       const _modalContainer = createElement('div', 'modalContainer', 'container', false);
-       const _rowContainer = createElement('div', '', 'row', false);
-       const _colContainer = createElement('div', '', 'col-6', false);
-       console.log(_modalContainer)
+    const createModal = () => {
+        const _modalRow = createElement('div', '', 'row', false, '', '');
+        const _modalCol = createElement('div', '', 'col-md-12', false, '', '');
+        const _modalBox = createElement('div', 'modalBox', 'modal fade', false, '', '');
+        const _modalDialog = createElement('div', '', 'modal-dialog', false, '', '');
+        const _modalContent = createElement('div', '', 'modal-content', false, '', '');
+        const _modalHeader= createElement('div', '', 'modal-header', false, '', '');
+        _modalContainer.appendChild(_modalRow);
+        _modalRow.appendChild(_modalCol);
+        _modalCol.appendChild(_modalBox);
+        _modalBox.appendChild(_modalDialog);
+        _modalDialog.appendChild(_modalContent);
+        _modalContent.appendChild(_modalHeader);
     }
 
     return {
         testMethod,
-        createElement,
         createModal
     }
 })(shop);
