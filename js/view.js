@@ -28,6 +28,8 @@ const view = (shop => {
         } 
         if (htmlfor) {
             element.htmlFor = htmlFor;
+        } else if (elementType === 'label') {
+            element.for = id;
         }
         if (elementType === 'p' || elementType === 'h1' || elementType === 'h2' || elementType === 'h3' ||
              elementType === 'h4' || elementType === 'h5' || elementType === 'h6' || elementType === 'a') {
@@ -35,8 +37,8 @@ const view = (shop => {
         }
     }
     return {
-        testMethod;
-        createElement;
+        testMethod,
+        createElement
     }
 })(shop);
 
