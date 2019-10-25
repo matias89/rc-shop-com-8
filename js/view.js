@@ -34,8 +34,8 @@ const view = (shop => {
         }
     }
     return {
-        testMethod;
-        createElement;
+        testMethod,
+        createElement
     }
 })(shop);
 
