@@ -4,7 +4,11 @@ const view = (shop => {
         const hw = shop.testMethod(); // M<ethod from 'shop' module
         console.log(hw);
     }
+<<<<<<< HEAD
     const createElement = (elementType, id, className, events, placeholder, content, htmlFor ) => {
+=======
+    const createElement = (elementType, id, className, events, placeholder, content ) => {
+>>>>>>> 99ad0394837b39174223ec56e9b49d23709209a5
         const element = document.createElement(elementType);
         element.innerText= content;
         if (events.length) {
@@ -28,8 +32,6 @@ const view = (shop => {
         } 
         if (htmlfor) {
             element.htmlFor = htmlFor;
-        } else if (elementType === 'label') {
-            element.for = id;
         }
         if (elementType === 'p' || elementType === 'h1' || elementType === 'h2' || elementType === 'h3' ||
              elementType === 'h4' || elementType === 'h5' || elementType === 'h6' || elementType === 'a') {
