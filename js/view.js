@@ -53,7 +53,8 @@ const view = (shop => {
 
     return {
         testMethod,
-        createModal
+        createModal,
+        createElement
     }
 })(shop);
 
