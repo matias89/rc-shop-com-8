@@ -6,7 +6,7 @@ const view = (shop => {
         const hw = shop.testMethod(); // M<ethod from 'shop' module
         console.log(hw);
     }
-    const createElement = (elementType, id, className, events, placeholder, content ) => {
+    const createElement = (elementType, id, className, events, placeholder, content, htmlFor ) => {
         const element = document.createElement(elementType);
         element.innerText= content;
         if (events.length) {
@@ -27,8 +27,9 @@ const view = (shop => {
         if (elementType === 'input') {
             element.placeholder = placeholder ;
             element.id = id;
-        } else if (elementType === 'label') {
-            element.for = id;
+        } 
+        if (htmlfor) {
+            element.htmlFor = htmlFor;
         }
         if (elementType === 'p' || elementType === 'h1' || elementType === 'h2' || elementType === 'h3' ||
             elementType === 'h4' || elementType === 'h5' || elementType === 'h6' || elementType === 'a') {
