@@ -1,0 +1,22 @@
+.carrito_vista {
+    background-color: aqua;
+    width: auto;
+    height: 200px;
+
+}
+
+.carrito_vista_label {
+    position: absolute;
+    right: 40px;
+    font-weight: bolder;
+}
+.carrito_vista_label2 {
+    margin-left: 20px;
+    font-weight: bolder;
+}
+
+.carrito_vista_button {
+    text-align: center;
+    margin-top: 20px;
+    
+}
