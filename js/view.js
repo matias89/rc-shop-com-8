@@ -26,7 +26,7 @@ const view = (shop => {
             element.placeholder = placeholder ;
             element.id = id;
         } 
-        if (htmlfor) {
+        if (htmlFor) {
             element.htmlFor = htmlFor;
         }
         if (elementType === 'p' || elementType === 'h1' || elementType === 'h2' || elementType === 'h3' ||
@@ -34,53 +34,56 @@ const view = (shop => {
             element.innerHTML = content;
         }
     }
+    /* const addCard = () => {
+        const cardContainer = document.getElementById('card');
+        const cardDeck = createCard();
+        cardContainer.appendChild(cardDeck);
+    } */
+    
+    const createCard = () => {
+        const cardContainer = document.getElementById('card');
+        const cardDeck = createElement('div', '', 'card-deck', false, false, '', '');;
+        const card  = createElement('div', '', 'card', false, false, '', '');
+        const img   = createElement('img', '', 'card-img-top',false, false, '', '');
+        const cardB = createElement('div', '', 'card-body', false, false, '', '');
+        const title = createElement('h5', '', 'card-title', false, false, 'content.title', '');
+        const text  = createElement('p','','card-text', false, false, 'content.text', '');
+        const textS = createElement('small', '', 'text-muted', false, false, 'content.textS', '');
+        cardContainer.appendChild(cardDeck);
+        card.appendChild(img);
+        card.appendChild(cardB);
+        card.appendChild(title);
+        card.appendChild(text);
+        card.appendChild(textS);
+        
+        return card; 
+    }
+    
+    const contentCards = (prod) => {
+        const row  = createElement('div', '', 'row mb-2', false, false, '', '');
+        const col1 = createElement('div', '', 'col', false, false, '', '');
+        const col2 = createElement('div', '', 'col', false, false, '', '');
+        const col3 = createElement('div', '', 'col', false, false, '', '');
+        const card = createCard(prod);
+        col1 = appendChild(card);
+        col2 = appendChild(card);
+        col3 = appendChild(card);
+        row  = appendChild(col1);
+        row  = appendChild(col2);
+        row  = appendChild(col3);
+    }
+    
+    const renderElements = () => {
+        const cardsContainer = document.getElementById(render);
+        const container = contentCards();
+        cardsContainer.appendChild(container);
+    }
     return {
         testMethod,
-        createElement
+        createElement,
+        renderElements,
     }
 })(shop);
 
-const addCard = () => {
-    const cardContainer = document.getElementById('card');
-    const cardDeck = createCards();
-    cardContainer.appendChild(createCards);
-}
-
-// elementType, id, className, events, placeholder, content
-const createCard = (content) => {
-    const card  = createElement('div', '', 'card', false, false, '');
-    const img   = createElement('img', '', 'card-img-top',false, false, '');
-    const cardB = createElement('div', '', 'card-body', false, false, '');
-    const title = createElement('h5', '', 'card-title', false, false, content.title);
-    const text  = createElement('p','','card-text', false, false, content.text);
-    const textS = createElement('small', '', 'text-muted', false, false, content.textS);
-    card.appendChild(img);
-    card.appendChild(cardB);
-    card.appendChild(title);
-    card.appendChild(text);
-    card.appendChild(textS);
-}
-// elementType, id, className, events, placeholder, content
-
-const contentCards = (prod) => {
-    const row  = createElement('div', '', 'row mb-2', false, false, '');
-    const col1 = createElement('div', '', 'col', false, false, '');
-    const col2 = createElement('div', '', 'col', false, false, '');
-    const col3 = createElement('div', '', 'col', false, false, '');
-    const card = createCard(prod);
-    col1 = appendChild(card);
-    col2 = appendChild(card);
-    col3 = appendChild(card);
-    row  = appendChild(col1);
-    row  = appendChild(col2);
-    row  = appendChild(col3);
-}
-
-const renderElements = () => {
-    const cardsContainer = document.getElementById(render);
-    const container = contentCards();
-    cardsContainer.appendChild(container);
-}
-
-renderElements();
+view.renderElements();
 view.testMethod();
