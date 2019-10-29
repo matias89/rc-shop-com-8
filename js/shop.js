@@ -46,17 +46,43 @@ const shop = (() => {
         setItem(shopKey, products);
     }
     const updateProduct = (id,j) => {
-       /*const products = getItem(shopKey);
-        let c;
-        for(let i = 0; i<products.length; i++) {
-            if (products[i].id === id){
-                c = i;
-            }
-            if(c){
+        const products = getItem(shopKey);
+        const quality = JSON.parse(localStorage.getItem('quality'));
+        //const b = getItem(quality);
+        for( let i = 0; i < products.length; i++){
+            if(products[i].id === id && quality){
+                //if(quality.j === j){
+                    products.push(j);
+                //}
                
             }
-        }*/
-    }
+        }
+        console.log(products);
+        setItem(shopKey, products);
+
+        //const q = getItem(quality);
+       // const k = j;
+        //products.push(j);
+        //const b = getItem(k);
+        //let c;
+      // for(let i = 0; i < products.length; i++) {
+      // if (products[i].id === id && b.j=== j){
+            //c = i ;
+          
+            //console.log(products);
+      // }
+        //}
+      
+          //  if(k){
+            //+    c = i;
+               // products.push(k);
+            //}
+           //if(c)
+           //setItem(shopKey, products);
+          
+        //} 
+        //console.log(products);
+   }
     const view = (prod) => {
        
     }
@@ -104,10 +130,11 @@ const testProd = {
       "free_interest": true
     }
   };
-//shop.addProduct(testProd);
+    shop.addProduct(testProd);
   //shop.removeProduct(3);
-  shop.removeProduct(1);
-  shop.updateProduct(1,2);
+  //shop.removeProduct(1);
+    shop.updateProduct(testProd,1);
+
   
 
  
