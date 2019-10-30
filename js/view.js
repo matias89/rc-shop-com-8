@@ -1,6 +1,7 @@
 const view = (shop => {
     //Select modal container in detail HTML
     const _modalContainer = document.getElementById('modalContainer');
+    const _spinnerContainer = document.getElementById('spinnerContainer');
     const createElement = (elementType, id, className, events, placeholder, content ) => {
         const element = document.createElement(elementType);
         // element.innerText = content;
@@ -51,7 +52,7 @@ const view = (shop => {
         _openBtn.setAttribute('data-toggle', 'modal')
         _openBtn.setAttribute('data-target', '#modalBox')
         closeModal.type = 'button';
-        closeModal.setAttribute('data-dismiss', 'modalBox');
+        closeModal.setAttribute('data-dismiss', 'modal');
         _modalContainer.appendChild(_modalRow);
         _modalRow.appendChild(_modalCol);
         _modalCol.appendChild(_openBtn);
@@ -79,11 +80,16 @@ const view = (shop => {
             _modalBtn.textContent = 'Continue';
         } else {
             _modalMessage.classList.add('fas', 'fa-exclamation-triangle');
-            _modalMessage.classList.add('text-warning');
+            _modalMessage.classList.add('text-danger');
             _modalMessage.innerHTML = 'Ocurrió un error, intente de nuevo.';
             _modalBtn.textContent = 'Intente de Nuevo';
         }
         return modal;
+    }
+    const createSpinner = () => {
+        const _spinner = createElement('div', 'spinner', 'spinner-border text-primary d-none');
+        _spinnerContainer.appendChild(_spinner);
+        return _spinner
     }
     // Promise to simulate buying process
     const openModal = () => {
@@ -97,7 +103,13 @@ const view = (shop => {
             }
         })
     }
-
+    const showSpinner = () => {
+        const _spinner = document.getElementById('spinner');
+        _spinner.classList.remove('d-none');
+    }
+    const validate = () => {
+        setTimeout(showSpinner(), 1500);
+    }
     const createItem = () => {
         const divContainer = createElement('div', false, 'carousel-item');
         const img = createElement('img', false, 'd-block w-100', false, false, 'https://fravega.vteximg.com.br/arquivos/ids/6191779-1000-1000/celular-liberado-samsung-galaxy-s10e-azul-781304.jpg');
@@ -121,10 +133,12 @@ const view = (shop => {
         createElement,
         showModal,
         openModal,
-        buildCarouselItems
+        buildCarouselItems,
+        createSpinner
     }
 })(shop);
 
+view.createSpinner();
 view.buildCarouselItems();
 view.openModal()
         .then(()=> {
