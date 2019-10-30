@@ -29,7 +29,7 @@ const view = (shop => {
             element.src = content;
         }
         if (elementType === 'p' || elementType === 'h1' || elementType === 'h2' || elementType === 'h3' ||
-            elementType === 'h4' || elementType === 'h5' || elementType === 'h6' || elementType === 'a') {
+            elementType === 'h4' || elementType === 'h5' || elementType === 'h6' || elementType === 'a' || elementType === 'button') {
             element.innerHTML = content;
         }
         return element;
@@ -38,7 +38,7 @@ const view = (shop => {
     const createModal = () => {
         const _modalRow = createElement('div', '', 'row', false);
         const _modalCol = createElement('div', '', 'col-md-12', false);
-        const _openBtn = createElement('button', 'openBtn', 'btn btn-primary', false, false, 'Open Modal')
+        const _openBtn = createElement('button', 'openBtn', 'btn btn-primary', false, false, 'Open Modal');
         const _modalBox = createElement('div', 'modalBox', 'modal fade');
         const _modalDialog = createElement('div', '', 'modal-dialog modal-dialog-centered modal-lg');
         const _modalContent = createElement('div', '', 'modal-content');
@@ -47,13 +47,15 @@ const view = (shop => {
         const _modalFooter = createElement('div', 'modalBody', 'modal-footer');
         const _modalIcon = createElement('i', 'modalIcon', '');
         const _modalMessage = createElement('h3', 'modalMessage', 'text-justify, font-weight-bold', );
-        const closeModal = createElement('button', 'modalBtn', 'btn btn-danger', false, false, 'Continue');
+        const closeModal = createElement('button', 'modalBtn', 'btn btn-danger close', false, false, 'Continue');
+        _openBtn.setAttribute('data-toggle', 'modal')
+        _openBtn.setAttribute('data-target', '#modalBox')
         closeModal.type = 'button';
-        closeModal.setAttribute('data-dismiss', 'modal');
+        closeModal.setAttribute('data-dismiss', 'modalBox');
         _modalContainer.appendChild(_modalRow);
         _modalRow.appendChild(_modalCol);
+        _modalCol.appendChild(_openBtn);
         _modalCol.appendChild(_modalBox);
-        _modalRow.appendChild(_openBtn);
         _modalBox.appendChild(_modalDialog);
         _modalDialog.appendChild(_modalContent);
         _modalContent.appendChild(_modalHeader);
@@ -65,21 +67,20 @@ const view = (shop => {
         return _modalRow;
     }
     //This function modified content inside the modal
-    const showModal = (success, error) => {
+    const showModal = status => {
         const modal = createModal();
         const _icon = document.getElementById('modalIcon');
         const _modalMessage = document.getElementById('modalMessage');
         const _modalBtn = document.getElementById('modalBtn');
-        if (success) {
+        if (status) {
             _icon.classList.add('fas', 'fa-check-circle');
             _modalMessage.classList.add('text-success');
-            _modalMessage.textContent = 'Su compra ha sido un éxito';
+            _modalMessage.innerHTML = 'Su compra ha sido un éxito';
             _modalBtn.textContent = 'Continue';
-        } 
-        if (error) {
+        } else {
             _modalMessage.classList.add('fas', 'fa-exclamation-triangle');
             _modalMessage.classList.add('text-warning');
-            _modalMessage.textContent = 'Ocurrió un error, intente de nuevo.';
+            _modalMessage.innerHTML = 'Ocurrió un error, intente de nuevo.';
             _modalBtn.textContent = 'Intente de Nuevo';
         }
         return modal;
@@ -87,8 +88,9 @@ const view = (shop => {
     // Promise to simulate buying process
     const openModal = () => {
         return new Promise((resolve, reject) => {
-            let num = Math.random();
-            if (num > 0.5) {
+            const num = (new Date()).toLocaleTimeString().substr(-1);
+            console.log(num)
+            if (num > 5) {
                 resolve();
             } else {
                 reject(error);
@@ -123,14 +125,13 @@ const view = (shop => {
     }
 })(shop);
 
-view.showModal();
 view.buildCarouselItems();
 view.openModal()
         .then(()=> {
-            showModal(success);
+            view.showModal(true);
         })
-        .catch((error)=> {
-            showModal(error);
+        .catch(()=> {
+            view.showModal(false);
         })
 
 
