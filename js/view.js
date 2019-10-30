@@ -39,18 +39,18 @@ const view = (shop => {
     }
     // This function create a modal window with Bootstrap Classes
     const createModal = () => {
-        const _modalRow = createElement('div', '', 'row', false, '', '', '');
-        const _modalCol = createElement('div', '', 'col-md-12', false, '', '', '');
-        const _openBtn = createElement('button', 'openBtn', 'btn btn-primary', false, '', 'Open Modal', '')
-        const _modalBox = createElement('div', 'modalBox', 'modal fade', false, '', '', '');
-        const _modalDialog = createElement('div', '', 'modal-dialog modal-dialog-centered modal-lg', false, '', '', '');
-        const _modalContent = createElement('div', '', 'modal-content', false, '', '', '');
-        const _modalHeader = createElement('div', 'modalHeader', 'modal-header', false, '', '', '');
-        const _modalBody = createElement('div', 'modalBody', 'modal-body', false, '', '', '');
-        const _modalFooter = createElement('div', 'modalBody', 'modal-footer', false, '', '', '');
-        const _modalIcon = createElement('i', 'modalIcon', '', false, '', '', '');
-        const _modalMessage = createElement('h3', 'modalMessage', 'text-justify, font-weight-bold', false, '', '', '');
-        const closeModal = createElement('button', 'modalBtn', 'btn btn-danger', false, '', 'Continue', '');
+        const _modalRow = createElement('div', '', 'row', false);
+        const _modalCol = createElement('div', '', 'col-md-12', false);
+        const _openBtn = createElement('button', 'openBtn', 'btn btn-primary', false, false, 'Open Modal')
+        const _modalBox = createElement('div', 'modalBox', 'modal fade');
+        const _modalDialog = createElement('div', '', 'modal-dialog modal-dialog-centered modal-lg');
+        const _modalContent = createElement('div', '', 'modal-content');
+        const _modalHeader = createElement('div', 'modalHeader', 'modal-header');
+        const _modalBody = createElement('div', 'modalBody', 'modal-body');
+        const _modalFooter = createElement('div', 'modalBody', 'modal-footer');
+        const _modalIcon = createElement('i', 'modalIcon', '');
+        const _modalMessage = createElement('h3', 'modalMessage', 'text-justify, font-weight-bold', );
+        const closeModal = createElement('button', 'modalBtn', 'btn btn-danger', false, false, 'Continue');
         closeModal.type = 'button';
         closeModal.setAttribute('data-dismiss', 'modal');
         _modalContainer.appendChild(_modalRow);
@@ -89,7 +89,7 @@ const view = (shop => {
     }
     // Promise to simulate buying process
     const openModal = new Promise((resolve, reject) => {
-        let num = Math.random;
+        let num = Math.random();
         if (num > 0.5) {
             resolve();
         } else {
@@ -107,9 +107,10 @@ const view = (shop => {
         testMethod,
         createModal,
         createElement,
-        showModal
+        showModal,
+        openModal
     }
 })(shop);
 
-view.testMethod();
 view.showModal();
+view.testMethod();
