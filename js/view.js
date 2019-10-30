@@ -85,21 +85,16 @@ const view = (shop => {
         return modal;
     }
     // Promise to simulate buying process
-    const openModal = new Promise((resolve, reject) => {
-        let num = Math.random();
-        if (num > 0.5) {
-            resolve();
-        } else {
-            reject(error);
-        }
-    })
-    openModal
-        .then(()=> {
-            showModal(success);
+    const openModal = () => {
+        return new Promise((resolve, reject) => {
+            let num = Math.random();
+            if (num > 0.5) {
+                resolve();
+            } else {
+                reject(error);
+            }
         })
-        .catch((error)=> {
-            showModal(error);
-        })
+    }
 
     const createItem = () => {
         const divContainer = createElement('div', false, 'carousel-item');
@@ -130,5 +125,12 @@ const view = (shop => {
 
 view.showModal();
 view.buildCarouselItems();
+view.openModal()
+        .then(()=> {
+            showModal(success);
+        })
+        .catch((error)=> {
+            showModal(error);
+        })
 
 
