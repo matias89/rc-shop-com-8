@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/matias89/rc-shop-com-8#readme",
   "dependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
     "json-server": "^0.15.1"
   }
 }
