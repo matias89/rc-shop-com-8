@@ -22,6 +22,7 @@ const shop = (() => {
         return 'Hello World!';
     }
     const addProduct = (product) => {
+        product.cant = 1; 
         const products = getItem(shopKey);
             if (products) {
                 products.push(product);
@@ -47,44 +48,22 @@ const shop = (() => {
     }
     const updateProduct = (id,j) => {
         const products = getItem(shopKey);
-        const quality = JSON.parse(localStorage.getItem('quality'));
-        //const b = getItem(quality);
         for( let i = 0; i < products.length; i++){
-            if(products[i].id === id && quality){
-                //if(quality.j === j){
-                    products.push(j);
-                //}
-               
+            if(products[i].id === id ){
+                products[i].cant = j;
             }
         }
+        setItem(shopKey,products);
         console.log(products);
-        setItem(shopKey, products);
-
-        //const q = getItem(quality);
-       // const k = j;
-        //products.push(j);
-        //const b = getItem(k);
-        //let c;
-      // for(let i = 0; i < products.length; i++) {
-      // if (products[i].id === id && b.j=== j){
-            //c = i ;
-          
-            //console.log(products);
-      // }
-        //}
-      
-          //  if(k){
-            //+    c = i;
-               // products.push(k);
-            //}
-           //if(c)
-           //setItem(shopKey, products);
-          
-        //} 
-        //console.log(products);
    }
-    const view = (prod) => {
-       
+   const clearproducts = () => { 
+        const products = getItem(shopKey);
+        if(products) {
+          localStorage.clear(products);
+        }
+   }
+    const confirmProduct = () => {
+        return getItem(shopKey);
     }
     const setItem = (key,valor) => {
         localStorage.setItem(key,JSON.stringify(valor));
@@ -98,44 +77,14 @@ const shop = (() => {
         addProduct,
         removeProduct,
         updateProduct,
+        clearproducts,
+        confirmProduct,
         testMethod
     }
 })();
+shop.getProducts();
+shop.getProduct(3);
 
-//shop.getProducts();
-//shop.getProduct(3);
-const testProd = {
-    "id": 1,
-    "category": "phones",
-    "brand": "Apple",
-    "model": "I Phone X",
-    "price": 60000,
-    "discount": 0,
-    "description": "",
-    "images": [
-      "./iphone_x/iphonex_1.jpg",
-      "./iphone_x/iphonex_2.jpg",
-      "./iphone_x/iphonex_3.jpg",
-      "./iphone_x/iphonex_4.jpg"
-    ],
-    "details": {
-      "camera": "32 Mp",
-      "color": "white",
-      "RAM": "8GB",
-      "ROM": "64GB"
-    },
-    "payment": {
-      "payments": 6,
-      "price_payment": 10000,
-      "free_interest": true
-    }
-  };
-    shop.addProduct(testProd);
-  //shop.removeProduct(3);
-  //shop.removeProduct(1);
-    shop.updateProduct(testProd,1);
-
-  
 
  
 
