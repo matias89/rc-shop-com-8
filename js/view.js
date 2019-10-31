@@ -1,8 +1,7 @@
 const view = (shop => {
-    //Select modal container in detail HTML
     const _modalContainer = document.getElementById('modalContainer');
     const _spinnerContainer = document.getElementById('spinnerContainer');
-    const createElement = (elementType, id, className, events, placeholder, content ) => {
+    const createElement = (elementType, id, className, events, placeholder, content, htmlFor, src ) => {
         const element = document.createElement(elementType);
         // element.innerText = content;
         if (events && events.length) {
@@ -30,7 +29,7 @@ const view = (shop => {
             element.For = id;
         }
         if (elementType === 'img') {
-            element.src = content;
+            element.src = src;
         }
         if (elementType === 'p' || elementType === 'h1' || elementType === 'h2' || elementType === 'h3' ||
             elementType === 'h4' || elementType === 'h5' || elementType === 'h6' || elementType === 'a' || elementType === 'button') {
