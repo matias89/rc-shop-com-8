@@ -2,7 +2,7 @@ const view = (shop => {
     //Select modal container in detail HTML
     const _modalContainer = document.getElementById('modalContainer');
     const _spinnerContainer = document.getElementById('spinnerContainer');
-    const createElement = (elementType, id, className, events, placeholder, content ) => {
+    const createElement = (elementType, id, className, events, placeholder, content, htmlFor ) => {
         const element = document.createElement(elementType);
         // element.innerText = content;
         if (events && events.length) {
@@ -89,29 +89,30 @@ const view = (shop => {
         }
         return modal;
     }
+    //Create Spinner
     const createSpinner = () => {
         const _spinner = createElement('div', 'spinner', 'spinner-border text-primary d-none');
         _spinnerContainer.appendChild(_spinner);
         return _spinner
     }
+    //Show Spinner
+    const showSpinner = () => {
+        const _spinner = document.getElementById('spinner');
+        _spinner.classList.remove('d-none');
+    }
     // Promise to simulate buying process
-    const openModal = () => {
+    const toggleModal = () => {
         return new Promise((resolve, reject) => {
             const num = (new Date()).toLocaleTimeString().substr(-1);
-            console.log(num)
+            setTimeout(() => {
+                return showSpinner()
+            }, 1500)
             if (num > 5) {
                 resolve();
             } else {
                 reject(error);
             }
         })
-    }
-    const showSpinner = () => {
-        const _spinner = document.getElementById('spinner');
-        _spinner.classList.remove('d-none');
-    }
-    const validate = () => {
-        setTimeout(showSpinner(), 1500);
     }
     const createItem = () => {
         const divContainer = createElement('div', false, 'carousel-item');
@@ -152,7 +153,7 @@ const view = (shop => {
         createModal,
         createElement,
         showModal,
-        openModal,
+        toggleModal,
         buildCarouselItems,
         createSpinner,
         createCard
@@ -161,7 +162,7 @@ const view = (shop => {
 
 view.createSpinner();
 view.buildCarouselItems();
-view.openModal()
+view.toggleModal()
         .then(()=> {
             view.showModal(true);
         })
