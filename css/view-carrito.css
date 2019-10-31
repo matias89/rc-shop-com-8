@@ -1,0 +1,59 @@
+.carrito_vista {
+    background-color: rgb(255, 254, 254);
+    width: auto;
+    height: 200px;
+
+}
+
+.carrito_vista_label {
+    position: absolute;
+    right: 40px;
+    font-weight: bolder;
+}
+.carrito_vista_label2 {
+    margin-left: 20px;
+    font-weight: bolder;
+}
+
+.carrito_vista_button {
+    text-align: center;
+    margin-top: 20px;
+    
+}
+
+.carrito_vista_button2 {
+    text-align: center;
+    margin-top: 20px;
+    width: 365px;
+    height: 174px;
+}
+
+.garantia {
+    flex-direction: column;
+}
+
+.buttons {
+    margin-left: 104px;
+    display: inline;
+}
+.buttons2 {
+    width: 90%;
+    margin-top: 76px;
+    background-color: #ddd;
+    text-align: center;
+    transition: 0.3s;
+}
+.buttons2:hover {
+        background-color: #3720ff;
+        color: white;
+      }
+
+
+.efecto-parrafo {
+    text-align: left; 
+font-family: Arial Black; 
+font-weight: bold; 
+font-size: 15px; 
+color: rgb(44, 1, 143); 
+text-shadow: indigo;
+}
