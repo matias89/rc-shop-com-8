@@ -1,11 +1,11 @@
 const shop = (() => {
     const shopKey = 'products';
     const getProducts = () => {
-        fetch('http://localhost:3000/products')
+        return fetch('http://localhost:3000/products')
             .then(response => {
-                response.json()
+                return response.json()
                     .then(products => {
-                        console.log(products);
+                        return products;
                     })
             });
     }
@@ -14,7 +14,7 @@ const shop = (() => {
             .then(response => {
                 response.json()
                     .then(products => {
-                        console.log(products);
+                        // console.log(products);
                     })
             });
     }
@@ -82,8 +82,8 @@ const shop = (() => {
         testMethod
     }
 })();
-shop.getProducts();
-shop.getProduct(3);
+// shop.getProducts();
+// shop.getProduct(3);
 
 
  
