@@ -46,12 +46,10 @@ const view = (shop => {
         const _modalContent = createElement('div', '', 'modal-content');
         const _modalHeader = createElement('div', 'modalHeader', 'modal-header');
         const _modalBody = createElement('div', 'modalBody', 'modal-body');
-        const _modalFooter = createElement('div', 'modalBody', 'modal-footer');
-        const _modalIcon = createElement('i', 'modalIcon', '');
+        const _modalFooter = createElement('div', 'modalFooter', 'modal-footer');
+        const _modalImage = createElement('img', 'modalImage', 'w-50 m-auto');
         const _modalMessage = createElement('h3', 'modalMessage', 'text-justify, font-weight-bold', );
         const closeModal = createElement('button', 'modalBtn', 'btn btn-danger close', false, false, 'Continue');
-        _openBtn.setAttribute('data-toggle', 'modal')
-        _openBtn.setAttribute('data-target', '#modalBox')
         closeModal.type = 'button';
         closeModal.setAttribute('data-dismiss', 'modal');
         if (_modalContainer) {
@@ -64,7 +62,7 @@ const view = (shop => {
         _modalContent.appendChild(_modalHeader);
         _modalContent.appendChild(_modalBody);
         _modalContent.appendChild(_modalFooter);
-        _modalHeader.appendChild(_modalIcon);
+        _modalHeader.appendChild(_modalImage);
         _modalBody.appendChild(_modalMessage);
         _modalFooter.appendChild(closeModal);
         return _modalRow;
@@ -72,19 +70,20 @@ const view = (shop => {
     //This function modified content inside the modal
     const showModal = status => {
         const modal = createModal();
-        const _icon = document.getElementById('modalIcon');
+        const _modalImage = document.getElementById('modalImage');
         const _modalMessage = document.getElementById('modalMessage');
-        const _modalBtn = document.getElementById('modalBtn');
+        const _modalBtn = document.getElementById('modalBtn')
         if (status) {
             _icon.classList.add('fas', 'fa-check-circle');
             if (_modalMessage) {
+                _modalImage.src = "./img/success.png"
                 _modalMessage.classList.add('text-success');
                 _modalMessage.innerHTML = 'Su compra ha sido un éxito';
             }
             _modalBtn.textContent = 'Continue';
         } else {
             if (_modalMessage) {
-                _modalMessage.classList.add('fas', 'fa-exclamation-triangle');
+                _modalImage.src = "./img/error.png"
                 _modalMessage.classList.add('text-danger');
                 _modalMessage.innerHTML = 'Ocurrió un error, intente de nuevo.';
             }
@@ -188,8 +187,7 @@ const view = (shop => {
         createProductsRow
     }
 })(shop);
-/*
-view.createSpinner();
+/* view.createSpinner();
 view.buildCarouselItems();
 view.toggleModal()
         .then(()=> {
@@ -198,5 +196,5 @@ view.toggleModal()
         .catch(()=> {
             view.showModal(false);
         })
-*/
+ */
 
