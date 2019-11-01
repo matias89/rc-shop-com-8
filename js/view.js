@@ -55,7 +55,9 @@ const view = (shop => {
         _openBtn.setAttribute('data-target', '#modalBox')
         closeModal.type = 'button';
         closeModal.setAttribute('data-dismiss', 'modal');
-        _modalContainer.appendChild(_modalRow);
+        if (_modalContainer) {
+            _modalContainer.appendChild(_modalRow);
+        }
         _modalRow.appendChild(_modalCol);
         _modalCol.appendChild(_openBtn);
         _modalCol.appendChild(_modalBox);
@@ -77,20 +79,26 @@ const view = (shop => {
         const _modalBtn = document.getElementById('modalBtn');
         if (status) {
             _icon.classList.add('fas', 'fa-check-circle');
-            _modalMessage.classList.add('text-success');
-            _modalMessage.innerHTML = 'Su compra ha sido un éxito';
+            if (_modalMessage) {
+                _modalMessage.classList.add('text-success');
+                _modalMessage.innerHTML = 'Su compra ha sido un éxito';
+            }
             _modalBtn.textContent = 'Continue';
         } else {
-            _modalMessage.classList.add('fas', 'fa-exclamation-triangle');
-            _modalMessage.classList.add('text-danger');
-            _modalMessage.innerHTML = 'Ocurrió un error, intente de nuevo.';
+            if (_modalMessage) {
+                _modalMessage.classList.add('fas', 'fa-exclamation-triangle');
+                _modalMessage.classList.add('text-danger');
+                _modalMessage.innerHTML = 'Ocurrió un error, intente de nuevo.';
+            }
             _modalBtn.textContent = 'Intente de Nuevo';
         }
         return modal;
     }
     const createSpinner = () => {
         const _spinner = createElement('div', 'spinner', 'spinner-border text-primary d-none');
-        _spinnerContainer.appendChild(_spinner);
+        if (_spinnerContainer) {
+            _spinnerContainer.appendChild(_spinner);
+        }
         return _spinner
     }
     // Promise to simulate buying process
@@ -126,25 +134,46 @@ const view = (shop => {
     }
     const buildCarouselItems = () => {
         const renderArea = document.getElementById('productdetail');
-        const item = createItem();
-        renderArea.appendChild(item);
+        if (renderArea) {
+            const item = createItem();
+            renderArea.appendChild(item);
+        }
     }
-    const createCard = () => {
-        const cardDeck = createElement('div', '', 'card-deck', false, false, false, false);;
+    const createProductsRow = products => {
+        const el = document.getElementById('cards-list');
+        const row = createElement('section', false, 'row');
+        for (let i = 0; i < products.length; i++) {
+            const product = products[i];
+            const detail = 'This is a description';
+            const card = createCard(product.model, detail, product.price, product.images, product.id);
+            row.appendChild(card);
+        }
+        el.appendChild(row);
+    }
+
+    const createCard = (cardTitle, body, price, images, id) => {
+        let cardImg = './images/default-img.jpg';
+        if (images.length) {
+            cardImg = `products/${images[0]}`;
+        }
+        const cardDeck = createElement('div', '', 'col-6 card-deck', false, false, false, false);
         const card  = createElement('div', '', 'card', false, false, false, false);
-        const img   = createElement('img', '', 'card-img-top',false, false, false, 'https://i1.wp.com/www.sopitas.com/wp-content/uploads/2019/01/boo-perrito-lindo-1120x581.jpeg');
+        const img   = createElement('img', '', 'card-img-top img-fluid',false, false, false, false, cardImg);
         const cardB = createElement('div', '', 'card-body', false, false, false, false);
-        const title = createElement('h5', '', 'card-title', false, false, 'Esto es un titulo', false);
-        const text  = createElement('p','','card-text', false, false, 'Esto es un texto', false);
-        const textS = createElement('p', '', 'text-muted small', false, false, 'Esto es un texto small', false);
+        const a = createElement('a', '', '', false, false, cardTitle, false);
+        const title = createElement('h5', '', 'card-title', false, false, '');
+        a.href = `./detail.html#${id}`;
+        title.appendChild(a);
+        const text  = createElement('p','','card-text', false, false, body, false);
+        const textS = createElement('p', '', 'text-muted', false, false, ` $${price.toFixed(2)} `, false);
         card.appendChild(img);
         card.appendChild(cardB);
         cardB.appendChild(title);
         cardB.appendChild(text);
         cardB.appendChild(textS);
         cardDeck.appendChild(card);
-        const cardId =  document.getElementById('cardId');
-        cardId.appendChild(cardDeck);
+        //const cardId =  document.getElementById('cardId');
+        //cardId.appendChild(cardDeck);
         return cardDeck
     }
     return {
@@ -154,10 +183,10 @@ const view = (shop => {
         openModal,
         buildCarouselItems,
         createSpinner,
-        createCard
+        createProductsRow
     }
 })(shop);
-
+/*
 view.createSpinner();
 view.buildCarouselItems();
 view.openModal()
@@ -167,5 +196,5 @@ view.openModal()
         .catch(()=> {
             view.showModal(false);
         })
-
+*/
 
