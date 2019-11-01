@@ -1,8 +1,7 @@
 const view = (shop => {
-    //Select modal container in detail HTML
     const _modalContainer = document.getElementById('modalContainer');
     const _spinnerContainer = document.getElementById('spinnerContainer');
-    const createElement = (elementType, id, className, events, placeholder, content, htmlFor ) => {
+    const createElement = (elementType, id, className, events, placeholder, content, htmlFor, src ) => {
         const element = document.createElement(elementType);
         // element.innerText = content;
         if (events && events.length) {
@@ -30,7 +29,7 @@ const view = (shop => {
             element.For = id;
         }
         if (elementType === 'img') {
-            element.src = content;
+            element.src = src;
         }
         if (elementType === 'p' || elementType === 'h1' || elementType === 'h2' || elementType === 'h3' ||
             elementType === 'h4' || elementType === 'h5' || elementType === 'h6' || elementType === 'a' || elementType === 'button') {
@@ -42,7 +41,6 @@ const view = (shop => {
     const createModal = () => {
         const _modalRow = createElement('div', '', 'row', false);
         const _modalCol = createElement('div', '', 'col-md-12', false);
-        const _openBtn = createElement('button', 'openBtn', 'btn btn-primary', false, false, 'Open Modal');
         const _modalBox = createElement('div', 'modalBox', 'modal fade');
         const _modalDialog = createElement('div', '', 'modal-dialog modal-dialog-centered modal-lg');
         const _modalContent = createElement('div', '', 'modal-content');
@@ -58,7 +56,6 @@ const view = (shop => {
         closeModal.setAttribute('data-dismiss', 'modal');
         _modalContainer.appendChild(_modalRow);
         _modalRow.appendChild(_modalCol);
-        _modalCol.appendChild(_openBtn);
         _modalCol.appendChild(_modalBox);
         _modalBox.appendChild(_modalDialog);
         _modalDialog.appendChild(_modalContent);
@@ -89,23 +86,26 @@ const view = (shop => {
         }
         return modal;
     }
-    //Create Spinner
     const createSpinner = () => {
         const _spinner = createElement('div', 'spinner', 'spinner-border text-primary d-none');
         _spinnerContainer.appendChild(_spinner);
         return _spinner
     }
-    //Show Spinner
     const showSpinner = () => {
         const _spinner = document.getElementById('spinner');
         _spinner.classList.remove('d-none');
     }
+    const hideSpinner = () => {
+        const _spinner = document.getElementById('spinner');
+        _spinner.classList.add('d-none');
+    }
     // Promise to simulate buying process
     const toggleModal = () => {
+        showSpinner();
         return new Promise((resolve, reject) => {
             const num = (new Date()).toLocaleTimeString().substr(-1);
             setTimeout(() => {
-                return showSpinner()
+                hideSpinner();
             }, 1500)
             if (num > 5) {
                 resolve();
