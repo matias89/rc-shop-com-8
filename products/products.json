@@ -666,10 +666,38 @@
         "discount": 10,
         "description": "",
         "images": ["./hitachi/hitachi_1.jpg", "./hitachi/hitachi_2.jpg", "./hitachi/hitachi_3.jpg", "./hitachi/hitachi_4.jpg"],
-        "details": {
-            "inches": 32,
-            "hd": true
+        "details": [{
+            "type": "camera",
+            "value": false
         },
+        {
+            "type": "color",
+            "value": "black"
+        },
+        {
+            "type": "RAM",
+            "value": false
+        },
+        {
+            "type": "ROM",
+            "value": false
+        },
+        {
+            "type": "inches",
+            "value": 32
+        },
+        {
+            "type": "HD",
+            "value": true
+        },
+        {
+            "type": "height",
+            "value": "30cm"
+        },
+        {
+            "type": "width",
+            "value": "45cm"
+        }],
         "payment": {
             "payments": 3,
             "price_payment": 5000,
@@ -707,7 +735,7 @@
         },
         {
             "type": "HD",
-            "value": true
+            "value": false
         },
         {
             "type": "height",
@@ -754,7 +782,7 @@
         },
         {
             "type": "HD",
-            "value": true
+            "value": false
         },
         {
             "type": "height",
@@ -821,7 +849,7 @@
         },
         {
             "type": "HD",
-            "value": true
+            "value": false
         },
         {
             "type": "height",
@@ -868,7 +896,7 @@
         },
         {
             "type": "HD",
-            "value": true
+            "value": false
         },
         {
             "type": "height",
@@ -876,11 +904,12 @@
         },
         {
             "type": "width",
-            "value": "50cm"
+            "value": "55cm"
         }],
         "payment": {
-            "payments": 6,
-            "price_payment": 3000,
-            "free_interest": false
+            "payments": 3,
+            "price_payment": 7000,
+            "free_interest": true
         }
-}
+    }
+]
