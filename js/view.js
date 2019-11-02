@@ -81,8 +81,7 @@ const view = (shop => {
             _modalBtn.textContent = 'Continue';
         } else {
             if (_modalMessage) {
-                _modalImage.src = './img/success.png';
-                _modalMessage.classList.add('fas', 'fa-exclamation-triangle');
+                _modalImage.src = './img/error.png';
                 _modalMessage.classList.add('text-danger');
                 _modalMessage.innerHTML = 'Ocurrió un error, intente de nuevo.';
             }
@@ -150,7 +149,6 @@ const toggleModal = () => {
         }
         el.appendChild(row);
     }
-
     const createCard = (cardTitle, body, price, images, id) => {
         let cardImg = './images/default-img.jpg';
         if (images.length) {
@@ -176,32 +174,11 @@ const toggleModal = () => {
         //cardId.appendChild(cardDeck);
         return cardDeck
     }
-    //This function modified content inside the modal
-    const showModal = (success, error) => {
-        const modal = createModal();
-        const _icon = document.getElementById('modalIcon');
-        const _modalMessage = document.getElementById('modalMessage');
-        const _modalBtn = document.getElementById('modalBtn');
-        if (success) {
-            _icon.classList.add('fas', 'fa-check-circle');
-            _modalMessage.classList.add('text-success');
-            _modalMessage.textContent = 'Su compra ha sido un éxito';
-            _modalBtn.textContent = 'Continue';
-        } 
-        if (error) {
-            _modalMessage.classList.add('fas', 'fa-exclamation-triangle');
-            _modalMessage.classList.add('text-warning');
-            _modalMessage.textContent = 'Ocurrió un error, intente de nuevo.';
-            _modalBtn.textContent = 'Intente de Nuevo';
-        }
-        return modal;
-    }
     return {
         createModal,
         createElement,
         toggleModal,
         showModal,
-        openModal,
         buildCarouselItems,
         createSpinner,
         createProductsRow
