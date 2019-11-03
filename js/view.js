@@ -184,6 +184,3 @@ const toggleModal = () => {
         createProductsRow
     }
 })(shop);
-
-view.showModal();
-view.testMethod();
