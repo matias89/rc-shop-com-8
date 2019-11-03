@@ -174,6 +174,32 @@ const toggleModal = () => {
         //cardId.appendChild(cardDeck);
         return cardDeck
     }
+    const createDetailView = id => {
+        const requestProduct = shop.getProduct(id);
+            requestProduct
+                .then(product => {
+                    let cant = checkedShoppingCart(id);
+                    if (cant) {
+                        cant += 1;
+                        shop.updateProduct(product.id, cant);
+                    } else {
+                        shop.addProduct(product);
+                    }
+                })
+    }
+     const checkedShoppingCart = id => {
+         const productsCart = shop.getProductsCart();
+         let cant;
+        if (productsCart) {
+            for (let i = 0; i < productsCart.length; i ++) {
+                console.log(productsCart[i], id)
+                if (productsCart[i].id === parseInt(id)) {
+                    cant = productsCart[i].cant;
+                }
+            }
+        }
+        return cant
+    }
     return {
         createModal,
         createElement,
@@ -181,6 +207,7 @@ const toggleModal = () => {
         showModal,
         buildCarouselItems,
         createSpinner,
-        createProductsRow
+        createProductsRow,
+        createDetailView,
     }
 })(shop);
