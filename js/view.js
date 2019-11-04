@@ -154,7 +154,8 @@ const toggleModal = () => {
         if (images.length) {
             cardImg = `products/${images[0]}`;
         }
-        const cardDeck = createElement('div', '', 'col-6 card-deck', false, false, false, false);
+        const cardContainer = createElement('div', '', 'col-6', false, false, false, false);
+        const cardDeck = createElement('div', '', 'card-deck card border-dark mb-3', false, false, false, false);
         const card  = createElement('div', '', 'card', false, false, false, false);
         const img   = createElement('img', '', 'card-img-top img-fluid',false, false, false, false, cardImg);
         const cardB = createElement('div', '', 'card-body', false, false, false, false);
@@ -169,10 +170,9 @@ const toggleModal = () => {
         cardB.appendChild(title);
         cardB.appendChild(text);
         cardB.appendChild(textS);
+        cardContainer.appendChild(cardDeck)
         cardDeck.appendChild(card);
-        //const cardId =  document.getElementById('cardId');
-        //cardId.appendChild(cardDeck);
-        return cardDeck
+        return cardContainer
     }
     return {
         createModal,
