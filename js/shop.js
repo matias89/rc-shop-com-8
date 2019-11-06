@@ -10,16 +10,13 @@ const shop = (() => {
             });
     }
     const getProduct = id => {
-        fetch(`http://localhost:3000/products/${id}`)
+        return fetch(`http://localhost:3000/products/${id}`)
             .then(response => {
-                response.json()
+                return response.json()
                     .then(products => {
-                        // console.log(products);
-                    })
+                        return products;
+                    });
             });
-    }
-    const testMethod = () => {
-        return 'Hello World!';
     }
     const addProduct = (product) => {
         product.cant = 1; 
@@ -65,6 +62,9 @@ const shop = (() => {
     const confirmProduct = () => {
         return getItem(shopKey);
     }
+    const getProductsCart = () => {
+        return getItem(shopKey);
+    }
     const setItem = (key,valor) => {
         localStorage.setItem(key,JSON.stringify(valor));
     }
@@ -79,7 +79,7 @@ const shop = (() => {
         updateProduct,
         clearproducts,
         confirmProduct,
-        testMethod
+        getProductsCart
     }
 })();
 // shop.getProducts();
