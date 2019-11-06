@@ -118,10 +118,11 @@ const toggleModal = () => {
             reject(error);
         }
     })
+
 }
-    const createItem = () => {
-        const divContainer = createElement('div', false, 'carousel-item');
-        const img = createElement('img', false, 'd-block w-100', false, false, 'https://fravega.vteximg.com.br/arquivos/ids/6191779-1000-1000/celular-liberado-samsung-galaxy-s10e-azul-781304.jpg');
+    const createItem = (isActive = '') => {
+        const divContainer = createElement('div', false, 'carousel-item ' + isActive);
+        const img = createElement('img', false, 'd-block w-100', false, false, false, false, 'https://fravega.vteximg.com.br/arquivos/ids/6191779-1000-1000/celular-liberado-samsung-galaxy-s10e-azul-781304.jpg');
         divContainer.appendChild(img);
         const divSubContainer = createElement('div',false,'carousel-caption d-none d-md-block');
         divContainer.appendChild(divSubContainer);
@@ -131,13 +132,7 @@ const toggleModal = () => {
         divContainer.appendChild(paragraph);
         return divContainer;
     }
-    const buildCarouselItems = () => {
-        const renderArea = document.getElementById('productdetail');
-        if (renderArea) {
-            const item = createItem();
-            renderArea.appendChild(item);
-        }
-    }
+    
     const createProductsRow = products => {
         const el = document.getElementById('cards-list');
         const row = createElement('section', false, 'row');
@@ -176,6 +171,20 @@ const toggleModal = () => {
         //cardId.appendChild(cardDeck);
         return cardContainer
     }
+
+    const buildCarouselItems = () => {
+        const renderArea = document.getElementById('productDetail');
+        for (let i = 0 ; i < 10; i++) {
+            if (i === 0) {
+                const item = createItem('active');
+                renderArea.appendChild(item);
+            } else {
+                const item = createItem('');
+                renderArea.appendChild(item);
+            }
+        }
+    }
+
 
     const createDetailView = id => {
         const requestProduct = shop.getProduct(id);
