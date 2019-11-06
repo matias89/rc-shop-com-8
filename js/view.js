@@ -132,6 +132,15 @@ const toggleModal = () => {
         divContainer.appendChild(paragraph);
         return divContainer;
     }
+
+    const createDetailProduct = () => {
+        const detailContainer = document.getElementById('detail');
+        for (let i = 0; i < 10; i++) {
+            const divRow1 = createElement('div', false, 'row');
+            const img1 = createElement('img', false, 'img', false, false, 'https://fravega.vteximg.com.br/arquivos/brand-samsung.png')
+
+        }
+    }
     
     const createProductsRow = products => {
         const el = document.getElementById('cards-list');
@@ -211,6 +220,13 @@ const toggleModal = () => {
             }
         }
         return cant
+    }
+
+    const buildDetailProduct = () => {
+        const renderArea = document.getElementById('Detail');        
+                const item = createItem();
+                renderArea.appendChild();
+                
     }
 
     return {
