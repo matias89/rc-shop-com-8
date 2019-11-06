@@ -1,7 +1,7 @@
 const view = (shop => {
     const _modalContainer = document.getElementById('modalContainer');
     const _spinnerContainer = document.getElementById('spinnerContainer');
-    const createElement = (elementType, id, className, events, placeholder, content, htmlFor, src ) => {
+    const createElement = (elementType, id, className, events, placeholder, content = '', htmlFor, src, type ) => {
         const element = document.createElement(elementType);
         // element.innerText = content;
         if (events && events.length) {
@@ -20,7 +20,15 @@ const view = (shop => {
             element.className = className;
         }
         if (elementType === 'input') {
-            element.placeholder = placeholder ;
+            if (type) {
+                element.type = type;
+            } else {
+                element.type = 'text';
+            }
+            if (type === 'number') {
+                element.min = 1;
+            }
+            element.placeholder = placeholder;
             element.id = id;
         } 
         if (htmlFor) {
@@ -32,7 +40,7 @@ const view = (shop => {
             element.src = src;
         }
         if (elementType === 'p' || elementType === 'h1' || elementType === 'h2' || elementType === 'h3' ||
-            elementType === 'h4' || elementType === 'h5' || elementType === 'h6' || elementType === 'a' || elementType === 'button') {
+            elementType === 'h4' || elementType === 'h5' || elementType === 'h6' || elementType === 'a' || elementType === 'button' || elementType === 'td') {
             element.innerHTML = content;
         }
         return element;
@@ -118,10 +126,11 @@ const toggleModal = () => {
             reject(error);
         }
     })
+
 }
-    const createItem = () => {
-        const divContainer = createElement('div', false, 'carousel-item');
-        const img = createElement('img', false, 'd-block w-100', false, false, 'https://fravega.vteximg.com.br/arquivos/ids/6191779-1000-1000/celular-liberado-samsung-galaxy-s10e-azul-781304.jpg');
+    const createItem = (isActive = '') => {
+        const divContainer = createElement('div', false, 'carousel-item ' + isActive);
+        const img = createElement('img', false, 'd-block w-100', false, false, false, false, 'https://fravega.vteximg.com.br/arquivos/ids/6191779-1000-1000/celular-liberado-samsung-galaxy-s10e-azul-781304.jpg');
         divContainer.appendChild(img);
         const divSubContainer = createElement('div',false,'carousel-caption d-none d-md-block');
         divContainer.appendChild(divSubContainer);
@@ -131,13 +140,7 @@ const toggleModal = () => {
         divContainer.appendChild(paragraph);
         return divContainer;
     }
-    const buildCarouselItems = () => {
-        const renderArea = document.getElementById('productdetail');
-        if (renderArea) {
-            const item = createItem();
-            renderArea.appendChild(item);
-        }
-    }
+    
     const createProductsRow = products => {
         const el = document.getElementById('cards-list');
         const row = createElement('section', false, 'row');
@@ -154,7 +157,8 @@ const toggleModal = () => {
         if (images.length) {
             cardImg = `products/${images[0]}`;
         }
-        const cardDeck = createElement('div', '', 'col-6 card-deck', false, false, false, false);
+        const cardContainer = createElement('div', '', 'col-6', false, false, false, false);
+        const cardDeck = createElement('div', '', 'card-deck card border-dark mb-3', false, false, false, false);
         const card  = createElement('div', '', 'card', false, false, false, false);
         const img   = createElement('img', '', 'card-img-top img-fluid',false, false, false, false, cardImg);
         const cardB = createElement('div', '', 'card-body', false, false, false, false);
@@ -169,11 +173,99 @@ const toggleModal = () => {
         cardB.appendChild(title);
         cardB.appendChild(text);
         cardB.appendChild(textS);
+        cardContainer.appendChild(cardDeck)
         cardDeck.appendChild(card);
         //const cardId =  document.getElementById('cardId');
         //cardId.appendChild(cardDeck);
-        return cardDeck
+        return cardContainer
     }
+
+    const buildCarouselItems = () => {
+        const renderArea = document.getElementById('productDetail');
+        for (let i = 0 ; i < 10; i++) {
+            if (i === 0) {
+                const item = createItem('active');
+                renderArea.appendChild(item);
+            } else {
+                const item = createItem('');
+                renderArea.appendChild(item);
+            }
+        }
+    }
+
+
+    const createDetailView = id => {
+        const requestProduct = shop.getProduct(id);
+            requestProduct
+                .then(product => {
+                    let cant = checkedShoppingCart(id);
+                    if (cant) {
+                        cant += 1;
+                        shop.updateProduct(product.id, cant);
+                    } else {
+                        shop.addProduct(product);
+                    }
+                })
+    }
+     const checkedShoppingCart = id => {
+         const productsCart = shop.getProductsCart();
+         let cant;
+        if (productsCart) {
+            for (let i = 0; i < productsCart.length; i ++) {
+                console.log(productsCart[i], id)
+                if (productsCart[i].id === parseInt(id)) {
+                    cant = productsCart[i].cant;
+                }
+            }
+        }
+        return cant
+    }
+
+    const buildItemsFromCart = () => {
+        const tBody = document.getElementById('product-list-from-cart');
+        for (let i = 0; i < 10; i++) {
+            const item = buildItemFromCart('Product Name ' + i, '2090', i);
+            tBody.appendChild(item);
+        }
+    }
+
+    const buildItemFromCart = (productName, price, id) => {
+        const inputEvents = [{
+            type: 'onchange',
+            method: ev => {
+                // shop.updateProduct(id, parseInt(ev.target.value));
+            }
+        }];
+        const buttonEvents = [{
+            type: 'onclick',
+            method: ev => {
+                if(confirm('Realmente deseas quitar el producto?')) {
+                    const myRow = document.getElementById('row_item_' + id);
+                    myRow.style.display = 'none';
+                    // shop.removeProduct(id, parseInt(ev.target.value));
+                }
+            }
+        }];
+        const tr = createElement('tr', 'row_item_' + id);
+        const td1 = createElement('td');
+        const img = createElement('img', false, false, false, false, false, false, 'https://fravega.vteximg.com.br/arquivos/ids/6188223-100-100/Heladera-No-Frost-Electrolux-DF3900P-345Lt-160299.jpg?v=637069347225230000');
+        td1.appendChild(img);
+        const td2 = createElement('td', false, false, false, false, productName);
+        const td3 = createElement('td');
+        const input = createElement('input', false, 'form-control', inputEvents, 'cantidad', false, false, false, 'number');
+        td3.appendChild(input);
+        const td4 = createElement('td', false, false, false, false, `$${price}`);
+        const td5 = createElement('td');
+        const btn = createElement('button', false, 'btn btn-danger', buttonEvents, false, 'Eliminar');
+        td5.appendChild(btn);
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
+        tr.appendChild(td4);
+        tr.appendChild(td5);
+        return tr;
+    }
+
     return {
         createModal,
         createElement,
@@ -181,6 +273,8 @@ const toggleModal = () => {
         showModal,
         buildCarouselItems,
         createSpinner,
-        createProductsRow
+        createProductsRow,
+        createDetailView,
+        buildItemsFromCart
     }
 })(shop);

@@ -11,26 +11,25 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <div class="container">   
-        <div class="row">  
-            <div class="col-4"></div>
-            <div class="col-4">      
+    <div class="container">
+        <div class="row">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb bg-white">
+                    <li class="breadcrumb-item"><a href="#">Celulares y Tecnología</a></li>
+                    <li class="breadcrumb-item"><a href="#">Celulares</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Celulares liberados</li>
+                </ol>
+            </nav>
+        </div>   
+        <div class="row">
+            <div class="col-sm-8">      
                 <div class="bd-example mt-5">
                     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>                        
                         </ol>
                         <div class="carousel-inner">
-                            <div id="productdetail"></div>
-                            <div class="carousel-item active">
-                                <img src="https://fravega.vteximg.com.br/arquivos/ids/6191779-1000-1000/celular-liberado-samsung-galaxy-s10e-azul-781304.jpg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-                                <h5>First slide label</h5>
-                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                </div>
-                            </div>                        
+                            <div id="productDetail"></div>                                                                               
                         </div>                        
                         <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -43,6 +42,34 @@
                     </div>
                 </div>
             </div>
+            <div class="col-sm-4">
+                <div class="row">
+                    <img src="https://fravega.vteximg.com.br/arquivos/brand-samsung.png" alt="">
+                    <h3>CELULAR LIBRE SAMSUNG GALAXY A30 AZUL</h3>
+                </div>
+                <hr>
+                <div class="container">
+                    <div class="row">
+                        <p>Precio en un pago</p>
+                    </div>
+                    <div class="row">
+                        <h3>$125999</h3>
+                    </div>                    
+                    <div class="row mt-2">
+                        <div class="col-sm-2">
+                            <img src="http://fravega.com/arquivos/full-card-visa.png" alt="">
+                        </div>
+                        <div class="col-sm-10">
+                            <h6 class="pt-2">12 cuotas sin interés de $2166,58</h6>
+                        </div>
+                    </div>                    
+                    <div class="row mt-5">
+                        <button class="btn btn-primary btn-block">COMPRAR</button>
+                    </div>                   
+                </div>
+                <hr>
+                <div class="row"></div>
+            </div>
         </div>    
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -52,10 +79,8 @@
     <script type="text/javascript" src="./js/view.js"></script>
     <script type="text/javascript">
     const id = location.hash.substr(1);
-    const requestProduct = shop.getProduct(id);
-    requestProduct.then(product => {
-        // view.createDetailView(product)
-    });
+    const requestProduct = shop.getProduct(id);    
+    view.buildCarouselItems();
     </script>
 </body>
 </html>
