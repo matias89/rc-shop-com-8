@@ -118,10 +118,11 @@ const toggleModal = () => {
             reject(error);
         }
     })
+
 }
-    const createItem = () => {
-        const divContainer = createElement('div', false, 'carousel-item');
-        const img = createElement('img', false, 'd-block w-100', false, false, 'https://fravega.vteximg.com.br/arquivos/ids/6191779-1000-1000/celular-liberado-samsung-galaxy-s10e-azul-781304.jpg');
+    const createItem = (isActive = '') => {
+        const divContainer = createElement('div', false, 'carousel-item ' + isActive);
+        const img = createElement('img', false, 'd-block w-100', false, false, false, false, 'https://fravega.vteximg.com.br/arquivos/ids/6191779-1000-1000/celular-liberado-samsung-galaxy-s10e-azul-781304.jpg');
         divContainer.appendChild(img);
         const divSubContainer = createElement('div',false,'carousel-caption d-none d-md-block');
         divContainer.appendChild(divSubContainer);
@@ -131,13 +132,7 @@ const toggleModal = () => {
         divContainer.appendChild(paragraph);
         return divContainer;
     }
-    const buildCarouselItems = () => {
-        const renderArea = document.getElementById('productdetail');
-        if (renderArea) {
-            const item = createItem();
-            renderArea.appendChild(item);
-        }
-    }
+    
     const createProductsRow = products => {
         const el = document.getElementById('cards-list');
         const row = createElement('section', false, 'row');
@@ -154,7 +149,8 @@ const toggleModal = () => {
         if (images.length) {
             cardImg = `products/${images[0]}`;
         }
-        const cardDeck = createElement('div', '', 'col-6 card-deck', false, false, false, false);
+        const cardContainer = createElement('div', '', 'col-6', false, false, false, false);
+        const cardDeck = createElement('div', '', 'card-deck card border-dark mb-3', false, false, false, false);
         const card  = createElement('div', '', 'card', false, false, false, false);
         const img   = createElement('img', '', 'card-img-top img-fluid',false, false, false, false, cardImg);
         const cardB = createElement('div', '', 'card-body', false, false, false, false);
@@ -169,11 +165,54 @@ const toggleModal = () => {
         cardB.appendChild(title);
         cardB.appendChild(text);
         cardB.appendChild(textS);
+        cardContainer.appendChild(cardDeck)
         cardDeck.appendChild(card);
         //const cardId =  document.getElementById('cardId');
         //cardId.appendChild(cardDeck);
-        return cardDeck
+        return cardContainer
     }
+
+    const buildCarouselItems = () => {
+        const renderArea = document.getElementById('productDetail');
+        for (let i = 0 ; i < 10; i++) {
+            if (i === 0) {
+                const item = createItem('active');
+                renderArea.appendChild(item);
+            } else {
+                const item = createItem('');
+                renderArea.appendChild(item);
+            }
+        }
+    }
+
+
+    const createDetailView = id => {
+        const requestProduct = shop.getProduct(id);
+            requestProduct
+                .then(product => {
+                    let cant = checkedShoppingCart(id);
+                    if (cant) {
+                        cant += 1;
+                        shop.updateProduct(product.id, cant);
+                    } else {
+                        shop.addProduct(product);
+                    }
+                })
+    }
+     const checkedShoppingCart = id => {
+         const productsCart = shop.getProductsCart();
+         let cant;
+        if (productsCart) {
+            for (let i = 0; i < productsCart.length; i ++) {
+                console.log(productsCart[i], id)
+                if (productsCart[i].id === parseInt(id)) {
+                    cant = productsCart[i].cant;
+                }
+            }
+        }
+        return cant
+    }
+
     return {
         createModal,
         createElement,
@@ -181,6 +220,7 @@ const toggleModal = () => {
         showModal,
         buildCarouselItems,
         createSpinner,
-        createProductsRow
+        createProductsRow,
+        createDetailView,
     }
 })(shop);
