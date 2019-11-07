@@ -27,7 +27,7 @@
                             <tbody id="product-list-from-cart"></tbody>
                         </table>
             
-                        <div class="row d-none">
+                        <div class="row">
                             <div class="col-2"></div>
                             <div class="col-8 border" style="border-radius: 6px;">
                                 <div class="row garantia">
@@ -60,23 +60,21 @@
                     </div>
                 </div>
                 <div class="col-4" style="background-color: rgb(255, 253, 253);">
-                    <div class="carrito_vista">
-                        <div>
-                            <label class="carrito_vista_label2">Subtotal</label>
-                            <label class="carrito_vista_label" >$15.000</label>
+                    <!--  <div class="carrito_vista"> -->
+                            <div id="viewprice">
+                           
+                                </div>
+                                         <label class="carrito_vista_label2">Subtotal</label>
+                                         <div id="subtotal">
+                                 </div>                      
+                                 <div>
+                                     <label class="carrito_vista_label2" >Total</label>
+                                 </div>
+                             
+                        <div class="carrito_vista_button">  
+                        <div id="view_button" style="width: 90%;"></div>     
+                    <!-- </div>  -->  
                         </div>
-                        <div>
-                            <label class="carrito_vista_label2" >Total</label>
-                            <label class="carrito_vista_label">$15.000</label>
-                        </div>
-                        <div class="carrito_vista_button">
-                        <button style="width: 90%;" type="button" class="btn btn-danger">Finalizar compra</button>
-                        </div>
-                        <div class="carrito_vista_button">
-                        <button style="width: 90%;" type="button" class="btn btn-primary">Seguir comprando</button>
-                        </div>        
-                    </div>    
-                </div>
             </div>
             <div class="row">
                 <div class="col-8">
@@ -210,6 +208,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script type="text/javascript">
     view.buildItemsFromCart();
+    //view.builViewSubtotal();
+    view.buildSecondFromCart();
     </script>
 </body>
 </html>
