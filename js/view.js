@@ -1,7 +1,7 @@
 const view = (shop => {
     const _modalContainer = document.getElementById('modalContainer');
     const _spinnerContainer = document.getElementById('spinnerContainer');
-    const createElement = (elementType, id, className, events, placeholder, content, htmlFor, src ) => {
+    const createElement = (elementType, id, className, events, placeholder, content = '', htmlFor, src, type ) => {
         const element = document.createElement(elementType);
         // element.innerText = content;
         if (events && events.length) {
@@ -20,7 +20,15 @@ const view = (shop => {
             element.className = className;
         }
         if (elementType === 'input') {
-            element.placeholder = placeholder ;
+            if (type) {
+                element.type = type;
+            } else {
+                element.type = 'text';
+            }
+            if (type === 'number') {
+                element.min = 1;
+            }
+            element.placeholder = placeholder;
             element.id = id;
         } 
         if (htmlFor) {
@@ -32,7 +40,7 @@ const view = (shop => {
             element.src = src;
         }
         if (elementType === 'p' || elementType === 'h1' || elementType === 'h2' || elementType === 'h3' ||
-            elementType === 'h4' || elementType === 'h5' || elementType === 'h6' || elementType === 'a' || elementType === 'button') {
+            elementType === 'h4' || elementType === 'h5' || elementType === 'h6' || elementType === 'a' || elementType === 'button' || elementType === 'td') {
             element.innerHTML = content;
         }
         return element;
@@ -213,6 +221,51 @@ const toggleModal = () => {
         return cant
     }
 
+    const buildItemsFromCart = () => {
+        const tBody = document.getElementById('product-list-from-cart');
+        for (let i = 0; i < 10; i++) {
+            const item = buildItemFromCart('Product Name ' + i, '2090', i);
+            tBody.appendChild(item);
+        }
+    }
+
+    const buildItemFromCart = (productName, price, id) => {
+        const inputEvents = [{
+            type: 'onchange',
+            method: ev => {
+                // shop.updateProduct(id, parseInt(ev.target.value));
+            }
+        }];
+        const buttonEvents = [{
+            type: 'onclick',
+            method: ev => {
+                if(confirm('Realmente deseas quitar el producto?')) {
+                    const myRow = document.getElementById('row_item_' + id);
+                    myRow.style.display = 'none';
+                    // shop.removeProduct(id, parseInt(ev.target.value));
+                }
+            }
+        }];
+        const tr = createElement('tr', 'row_item_' + id);
+        const td1 = createElement('td');
+        const img = createElement('img', false, false, false, false, false, false, 'https://fravega.vteximg.com.br/arquivos/ids/6188223-100-100/Heladera-No-Frost-Electrolux-DF3900P-345Lt-160299.jpg?v=637069347225230000');
+        td1.appendChild(img);
+        const td2 = createElement('td', false, false, false, false, productName);
+        const td3 = createElement('td');
+        const input = createElement('input', false, 'form-control', inputEvents, 'cantidad', false, false, false, 'number');
+        td3.appendChild(input);
+        const td4 = createElement('td', false, false, false, false, `$${price}`);
+        const td5 = createElement('td');
+        const btn = createElement('button', false, 'btn btn-danger', buttonEvents, false, 'Eliminar');
+        td5.appendChild(btn);
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
+        tr.appendChild(td4);
+        tr.appendChild(td5);
+        return tr;
+    }
+
     return {
         createModal,
         createElement,
@@ -222,5 +275,6 @@ const toggleModal = () => {
         createSpinner,
         createProductsRow,
         createDetailView,
+        buildItemsFromCart
     }
 })(shop);
