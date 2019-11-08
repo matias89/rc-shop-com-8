@@ -82,8 +82,8 @@ const shop = (() => {
         getProductsCart
     }
 })();
-shop.getProducts();
-shop.getProduct(3);
+// shop.getProducts();
+// shop.getProduct(3);
 
 
  
