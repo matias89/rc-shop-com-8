@@ -1,3 +1,5 @@
+import { create } from "domain";
+
 const view = (shop => {
     const _modalContainer = document.getElementById('modalContainer');
     const _spinnerContainer = document.getElementById('spinnerContainer');
@@ -145,7 +147,13 @@ const toggleModal = () => {
         const detailContainer = document.getElementById('detail');
         for (let i = 0; i < 10; i++) {
             const divRow1 = createElement('div', false, 'row');
-            const img1 = createElement('img', false, 'img', false, false, 'https://fravega.vteximg.com.br/arquivos/brand-samsung.png')
+            const TitleH = createElement('h3', false, 'h3')
+            const hrLine = createElement('hr',false, 'hr');
+            divRow1.appendChild(TitleH);
+            divRow1.appendChild(h3);
+            divRow1.appendChild(hrLine);
+            const divRow2 = createElement('div', false, 'container')
+
 
         }
     }
@@ -201,7 +209,6 @@ const toggleModal = () => {
             }
         }
     }
-
 
     const createDetailView = id => {
         const requestProduct = shop.getProduct(id);
