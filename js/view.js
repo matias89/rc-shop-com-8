@@ -285,7 +285,34 @@ const toggleModal = () => {
         tr.appendChild(td5);
         return tr;
     }
-
+    const buildSecondFromCart = () => {
+        const buttonevent1 = [{
+            type: 'onclick',
+            method: b => {
+                shop.confirmProduct();
+            }
+        }
+        ];
+        const buttonevent2 = [{
+            type: 'onclick',
+            method: v => {
+                
+            }
+        }];
+        const buttonevent3 = [{
+            type: 'onclick',
+            method: c => {
+                shop.clearproducts();
+            }
+        }]
+        const viewbutton = document.getElementById('view_button');
+        const btn1 = createElement('button', false, 'btn btn-primary px-3 mt-3', buttonevent1, false, 'Finalizar Compra', false, false, 'button');
+        const btn2 = createElement('button', false, 'btn btn-outline-primary px-3 mt-3', buttonevent2, false, 'Seguir comprando');
+        const btn3 = createElement('button', false, 'btn btn-light px-3 mt-3', false, false, 'Cancelar Compra', false, false, false);
+        viewbutton.appendChild(btn1);
+        viewbutton.appendChild(btn2);
+        viewbutton.appendChild(btn3);
+    }
     return {
         createModal,
         createElement,
@@ -295,6 +322,7 @@ const toggleModal = () => {
         createSpinner,
         createProductsRow,
         createDetailView,
-        buildItemsFromCart
+        buildItemsFromCart,
+        buildSecondFromCart
     }
 })(shop);
