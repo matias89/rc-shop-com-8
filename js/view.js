@@ -140,6 +140,21 @@ const toggleModal = () => {
         divContainer.appendChild(paragraph);
         return divContainer;
     }
+
+    const createDetailProduct = () => {
+        const detailContainer = document.getElementById('detail');
+        for (let i = 0; i < 10; i++) {
+            const divRow1 = createElement('div', false, 'row');
+            const TitleH = createElement('h3', false, 'h3')
+            const hrLine = createElement('hr',false, 'hr');
+            divRow1.appendChild(TitleH);
+            divRow1.appendChild(h3);
+            divRow1.appendChild(hrLine);
+            const divRow2 = createElement('div', false, 'container')
+
+
+        }
+    }
     
     const createProductsRow = products => {
         const el = document.getElementById('cards-list');
@@ -193,7 +208,6 @@ const toggleModal = () => {
         }
     }
 
-
     const createDetailView = id => {
         const requestProduct = shop.getProduct(id);
             requestProduct
@@ -221,6 +235,12 @@ const toggleModal = () => {
         return cant
     }
 
+    const buildDetailProduct = () => {
+        const renderArea = document.getElementById('Detail');        
+                const item = createItem();
+                renderArea.appendChild();
+    }
+                
     const buildItemsFromCart = () => {
         const tBody = document.getElementById('product-list-from-cart');
         for (let i = 0; i < 10; i++) {
