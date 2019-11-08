@@ -176,9 +176,13 @@ const toggleModal = () => {
         const cardContainer = createElement('div', '', 'col-4', false, false, false, false);
         const cardDeck = createElement('div', '', 'card-deck', false, false, false, false);
         cardDeck.style.marginRight = '10px';
-        const card  = createElement('div', '', 'card', false, false, false, false);
-        card.style.height = '700px';
-        const img   = createElement('img', '', 'card-img-top img-fluid',false, false, false, false, cardImg);
+        const card  = createElement('div', '', 'card mb-2', false, false, false, false);
+        // card.style.height = '700px';
+        const cropImg = createElement('div');
+        cropImg.style.height = '200px';
+        cropImg.style.overflow = 'hidden';
+        const img = createElement('img', '', 'card-img-top img-fluid',false, false, false, false, cardImg);
+        cropImg.appendChild(img);
         const cardB = createElement('div', '', 'card-body', false, false, false, false);
         const a = createElement('a', '', '', false, false, cardTitle, false);
         const title = createElement('h5', '', 'card-title', false, false, '');
@@ -186,7 +190,7 @@ const toggleModal = () => {
         title.appendChild(a);
         const text  = createElement('p','','card-text', false, false, body, false);
         const textS = createElement('h3', '', 'badge badge-secondary', false, false, ` $${price.toFixed(2)} `, false);
-        card.appendChild(img);
+        card.appendChild(cropImg);
         card.appendChild(cardB);
         cardB.appendChild(title);
         cardB.appendChild(text);
