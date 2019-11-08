@@ -140,7 +140,6 @@ const toggleModal = () => {
         divContainer.appendChild(paragraph);
         return divContainer;
     }
-<<<<<<< HEAD
 
     const createDetailProduct = () => {
         const detailContainer = document.getElementById('detail');
@@ -150,8 +149,6 @@ const toggleModal = () => {
 
         }
     }
-=======
->>>>>>> 76dd616805e29dcd82aa67b2c9117e7ed90dc101
     
     const createProductsRow = products => {
         const el = document.getElementById('cards-list');
@@ -233,13 +230,11 @@ const toggleModal = () => {
         return cant
     }
 
-<<<<<<< HEAD
     const buildDetailProduct = () => {
         const renderArea = document.getElementById('Detail');        
                 const item = createItem();
                 renderArea.appendChild();
                 
-=======
     const buildItemsFromCart = () => {
         const tBody = document.getElementById('product-list-from-cart');
         for (let i = 0; i < 10; i++) {
@@ -283,7 +278,6 @@ const toggleModal = () => {
         tr.appendChild(td4);
         tr.appendChild(td5);
         return tr;
->>>>>>> 76dd616805e29dcd82aa67b2c9117e7ed90dc101
     }
 
     return {
@@ -297,4 +291,4 @@ const toggleModal = () => {
         createDetailView,
         buildItemsFromCart
     }
-})(shop);
+}(shop);
