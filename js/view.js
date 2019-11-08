@@ -1,5 +1,3 @@
-import { create } from "domain";
-
 const view = (shop => {
     const _modalContainer = document.getElementById('modalContainer');
     const _spinnerContainer = document.getElementById('spinnerContainer');
@@ -241,6 +239,7 @@ const toggleModal = () => {
         const renderArea = document.getElementById('Detail');        
                 const item = createItem();
                 renderArea.appendChild();
+    }
                 
     const buildItemsFromCart = () => {
         const tBody = document.getElementById('product-list-from-cart');
@@ -298,4 +297,4 @@ const toggleModal = () => {
         createDetailView,
         buildItemsFromCart
     }
-}(shop);
+})(shop);
