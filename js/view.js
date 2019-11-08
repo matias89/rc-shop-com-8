@@ -158,12 +158,13 @@ const toggleModal = () => {
     
     const createProductsRow = products => {
         const el = document.getElementById('cards-list');
-        const row = createElement('section', false, 'row');
+        const rowCard = document.getElementById('rowCard');
         for (let i = 0; i < products.length; i++) {
             const product = products[i];
             const detail = 'This is a description';
             const card = createCard(product.model, detail, product.price, product.images, product.id);
-            row.appendChild(card);
+            rowCard.appendChild(card);
+            
         }
         el.appendChild(row);
     }
@@ -172,9 +173,11 @@ const toggleModal = () => {
         if (images.length) {
             cardImg = `products/${images[0]}`;
         }
-        const cardContainer = createElement('div', '', 'col-6', false, false, false, false);
-        const cardDeck = createElement('div', '', 'card-deck card border-dark mb-3', false, false, false, false);
+        const cardContainer = createElement('div', '', 'col-4', false, false, false, false);
+        const cardDeck = createElement('div', '', 'card-deck', false, false, false, false);
+        cardDeck.style.marginRight = '10px';
         const card  = createElement('div', '', 'card', false, false, false, false);
+        card.style.height = '700px';
         const img   = createElement('img', '', 'card-img-top img-fluid',false, false, false, false, cardImg);
         const cardB = createElement('div', '', 'card-body', false, false, false, false);
         const a = createElement('a', '', '', false, false, cardTitle, false);
@@ -182,7 +185,7 @@ const toggleModal = () => {
         a.href = `./detail.html#${id}`;
         title.appendChild(a);
         const text  = createElement('p','','card-text', false, false, body, false);
-        const textS = createElement('p', '', 'text-muted', false, false, ` $${price.toFixed(2)} `, false);
+        const textS = createElement('h3', '', 'badge badge-secondary', false, false, ` $${price.toFixed(2)} `, false);
         card.appendChild(img);
         card.appendChild(cardB);
         cardB.appendChild(title);
