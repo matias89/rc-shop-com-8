@@ -266,35 +266,33 @@ const toggleModal = () => {
         return tr;
     }
     const buildSecondFromCart = () => {
-        const buttonevent = [{
+        const buttonevent1 = [{
             type: 'onclick',
             method: b => {
                 shop.confirmProduct();
             }
         }
-
-        ]
+        ];
+        const buttonevent2 = [{
+            type: 'onclick',
+            method: v => {
+                
+            }
+        }];
+        const buttonevent3 = [{
+            type: 'onclick',
+            method: c => {
+                shop.clearproducts();
+            }
+        }]
         const viewbutton = document.getElementById('view_button');
-        //const lbl1 = createElement('h4', false,'text-dark', false, false, 'Subtotal');
-       // const subTotal = createElement('p', false, 'text-dark', false, false, '$1200');
-        //const total = createElement('p', false, 'text-dark', false, false, '$1578');
-       // const lbl2 = createElement('h4', false, 'text-dark', false, false, 'Total', false);
-        const btn1 = createElement('button', false, 'btn btn-primary px-3 mt-3', buttonevent, false, 'Finalizar Compra', false, false, 'button');
-        const btn2 = createElement('button', false, 'btn btn-outline-primary px-3 mt-3', false, false, 'Seguir comprando');     
-        //viewbutton.appendChild(lbl1);
-        //lbl1.appendChild(subTotal);
-        //lbl2.appendChild(total);
-        //viewbutton.appendChild(lbl2);
+        const btn1 = createElement('button', false, 'btn btn-primary px-3 mt-3', buttonevent1, false, 'Finalizar Compra', false, false, 'button');
+        const btn2 = createElement('button', false, 'btn btn-outline-primary px-3 mt-3', buttonevent2, false, 'Seguir comprando');
+        const btn3 = createElement('button', false, 'btn btn-light px-3 mt-3', false, false, 'Cancelar Compra', false, false, false);
         viewbutton.appendChild(btn1);
         viewbutton.appendChild(btn2);
+        viewbutton.appendChild(btn3);
     }
-   /* const builViewSubtotal = () => {
-        const sub = document.getElementById('subtotal');
-        const subtotal = createElement('p',false, 'text-dark', false, false, '2233', false, false,'text');
-
-        sub.appendChild(subtotal);
-    }*/
-
     return {
         createModal,
         createElement,
@@ -306,6 +304,5 @@ const toggleModal = () => {
         createDetailView,
         buildItemsFromCart,
         buildSecondFromCart
-        //builViewSubtotal
     }
 })(shop);
