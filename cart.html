@@ -8,35 +8,138 @@
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/view-carrito.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
-    <section>
+  <header>
+    <div class="nav-1">
+      <ul class="nav">
+        <li>
+          <a href=""><img src="./img/shop2.png" ></a>          
+        </li>
+        <li>
+          <form>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="buscar productos" aria-label="Recipient's username" aria-describedby="basic-addon2" style="width: 600px;">
+                <div class="input-group-append">
+                  <span class="input-group-text" id="basic-addon2"> <img src="./img/herramienta-de-aumento-de-lentes-de-busqueda.png"></span>
+                </div>
+            </div>
+          </form>
+          </li>
+          <li>
+            <a href="#">
+                <img src="./img/icon-usuario.png" style="padding: 7px">
+            </a>
+          </li>
+          <li>
+            <a href="#"><img src="./img/carrito-de-compras.png" style="padding: 7px"></a>
+          </li>
+      </ul>
+    </div> <hr>
+    <div class="nav-2">
+      <ul class="nav">
+        <li class="nav-item">
+            <div class="dropdown">
+                <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <p class="small">Tv audio y video </p> 
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item small" href="#">tv</a>
+                  <a class="dropdown-item small" href="#">audio</a>
+                  <a class="dropdown-item small" href="#">video</a>
+              </div>
+        </li>
+        <li class="nav-item">
+            <div class="dropdown">
+                <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <p class="small">Celulares y Tecnologia</p>  
+                </button>
+                <div class="dropdown-menu small" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item small" href="#">Celulares</a>
+                  <a class="dropdown-item small" href="#">Tecnologia</a>
+                </div>
+        </li>
+        <li class="nav-item">
+            <div class="dropdown">
+                <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <p class="small">Hogar, Muebles y Jardin</p> 
+                </button>
+                <div class="dropdown-menu small" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item small" href="#">Hogar</a>
+                  <a class="dropdown-item small" href="#">Muebles</a>
+                  <a class="dropdown-item small" href="#">Jardin</a>
+                </div>
+          </li>
+          <li class="nav-item">
+              <div class="dropdown">
+                <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <p class="small">Salud, belleza y fitness</p> 
+                </button>
+                <div class="dropdown-menu small" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item small" href="#">salud</a>
+                  <a class="dropdown-item small" href="#">belleza</a>
+                  <a class="dropdown-item small" href="#">fitness</a>
+                </div>
+              
+          </li>
+        <li class="nav-item">
+            <div class="dropdown">
+                <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <p class="small">Bebes y niños</p> 
+                </button>
+                <div class="dropdown-menu small" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item small" href="#">infancia</a>
+                  <a class="dropdown-item small" href="#">cunas y corralitos</a>
+                  <a class="dropdown-item small" href="#">juegos de aire libre</a>
+                  <a class="dropdown-item small" href="#">juguetes</a>
+                </div>
+              </div>
+        </li>
+        <li class="nav-item">
+            <div class="dropdown">
+                <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <p class="small">Electrodomesticos y aire acondicionados</p> 
+                </button>
+                <div class="dropdown-menu small" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item small" href="#">heladeras</a>
+                  <a class="dropdown-item small" href="#">microondas</a>
+                  <a class="dropdown-item small" href="#">aire frio y calor</a>
+                  <a class="dropdown-item small" href="#">calefactor</a>
+                </div>
+              </div>
+        </li>
+        <li class="nav-item">
+            <div class="dropdown">
+                <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <p class="small">Mas categorias</p>
+                </button>
+                <div class="dropdown-menu small" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item small" href="#">camping</a>
+                  <a class="dropdown-item small" href="#">herramientas electricas</a>
+                  <a class="dropdown-item small" href="#">herramientas y accesorios</a>
+                  <a class="dropdown-item small" href="#">industria gastronomicas</a>
+                </div>
+              </div>
+        </li>
+      </ul>
+    </div>
+</header>
+  <section>
         <div class="container">
             <div id="modalContainer"></div>
             <div id="spinnerContainer" class="d-flex justify-content-center"></div>
             <div class="row border" style="border-bottom-color: black; border-radius: 10px;">
                 <div class="col-8" style="background-color: rgb(255, 253, 253);">
                     <div>
-                        <div class="row">
-                            <div class="col-2">
-                                <img src="https://fravega.vteximg.com.br/arquivos/ids/6188223-100-100/Heladera-No-Frost-Electrolux-DF3900P-345Lt-160299.jpg?v=637069347225230000" alt="">
-                            </div>
-                            <div class="col-6 align-box">
-                                <a href="#">Heladera no Frost</a>
-                                <a href="#"><img src="./images/plus (1).png" alt=""></a>
-                                <span>1</span>
-                                <a href="#"><img src="./images/minus.png" alt=""></a>
-                            </div>
-                            <div class="col-2 align-box">
-                                <label class="carrito_vista_label" >$15.000</label>
-                            </div>
-                            <div class="col-2 align-box">
-                                <button style="margin-top: -8px;" type="button" class="btn btn-light" data-toggle="tooltip" data-html="true" title="Eliminar del carrito">
-                                    <a href="">Eliminar</a>
-                                </button>
-                            </div>
-                        </div>
+                        <table class="table">
+                            <thead>
+                                <th colspan="2">Producto</th>
+                                <th>Cantidad</th>
+                                <th>Precio</th>
+                                <th></th>
+                            </thead>
+                            <tbody id="product-list-from-cart"></tbody>
+                        </table>
                         <div class="row">
                             <div class="col-2"></div>
                             <div class="col-8 border" style="border-radius: 6px;">
@@ -70,24 +173,16 @@
                     </div>
                 </div>
                 <div class="col-4" style="background-color: rgb(255, 253, 253);">
-                    <div class="carrito_vista">
+                    <div class="carrito_vista"> 
+                        <label class="carrito_vista_label2">Subtotal</label>               
                         <div>
-                            <label class="carrito_vista_label2">Subtotal</label>
-                            <label class="carrito_vista_label" >$15.000</label>
+                        <label class="carrito_vista_label2" >Total</label>
                         </div>
-                        <div>
-                            <label class="carrito_vista_label2" >Total</label>
-                            <label class="carrito_vista_label">$15.000</label>
+                        <div class="carrito_vista_button">  
+                            <div id="view_button" style="width: 90%;"></div>     
                         </div>
-                        <div class="carrito_vista_button">
-                        <button style="width: 90%;" type="button" class="btn btn-danger">Finalizar compra</button>
-                        </div>
-                        <div class="carrito_vista_button">
-                        <button style="width: 90%;" type="button" class="btn btn-primary">Seguir comprando</button>
-                        </div>        
-                    </div>    
+                    </div>
                 </div>
-            </div>
             <div class="row">
                 <div class="col-8">
                     <div class="border-bottom">
@@ -114,10 +209,107 @@
             </div>
         </div>          
     </section>
+    <footer>    
+        <div class="container">
+            <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                <div class="card-body bg-info">
+                    <h5 class="card-title text-white">Venta telefónica 0810 333 8700</h5>
+                    <p class="card-text text-white">LU-VI de 08:00 a 20:00 / SA-DO 09:00 a 21:00</p>
+                </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                <div class="card-body bg-info">
+                    <h5 class="card-title text-white">Atención al cliente 0810 999 3728</h5>
+                    <p class="card-text text-white">LU-VI de 10:00 a 16:00</p>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div>
+            <div class="row">
+                <div class="col-md-2">
+                    <ul>
+                        <li class="small"> <b>Shop-Project 8</b></li>
+                        <li class="small"><a href="">Medios de Pago</a></li>
+                        <li class="small"><a href="">Garantia Extendida</a></li>
+                        <li class="small"><a href="">Servicio Técnico</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <ul>
+                        <li class="small"> <b>Ayuda</b></li>
+                        <li class="small"><a href="">Centro de Ayuda</a></li>
+                        <li class="small"><a href="">Contactanos</a></li>
+                        <li class="small"><a href="">Preguntas Frecuentes</a></li>
+                        <li class="small"><a href="">Sucursales</a></li>
+                        <li class="small"><a href="">Devoluciones</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <ul>
+                        <li class="small"> <b>Recomendados</b></li>
+                        <li class="small"><a href="">Smart TV y Led</a></li>
+                        <li class="small"><a href="">Celulares</a></li>
+                        <li class="small"><a href="">Novedades</a></li>
+                        <li class="small"><a href="">Beneficios Club</a></li>
+                        <li class="small"><a href="">Personal</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <ul>
+                        <li class="small"> <b>Legal</b></li>
+                        <li class="small"><a href="">Información Legal</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <div class=" text-center">
+                            <h6>Recibí ofertas y promociones por email</h6>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-8"><input type="text" placeholder="Ingrese su E-mail" class="input form-control"> </div>
+                                    <div class="col-4"><a href="#"><button class="btn bg-info text-white">Suscibirme </button></a></div>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                </div>              
+            </div>
+            <div class="row">
+            <div class="col-6">
+                <div class="col"> <img src="img/shop.png" alt=""></div>
+            </div>
+            <div class="col-6"></div>
+                <a target="_blank" href="https://twitter.com/login?lang=es"><i class="fab fa-twitter"></i> </a>
+                <a target="_blank" href="https://www.facebook.com/"><i class="fab fa-facebook-square"></i> </a>
+                <a target="_blank" href="https://www.youtube.com"><i class="fab fa-youtube"></i></a>
+                <a target="_blank" href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-6">
+            <div>
+                <h6>Copyright 2018-2019 | Todos los derechos reservados Shop.com.| Tucumán | Argentina</h6> 
+                <p><h12>Los precios online y los planes de financiación para los productos presentados/publicados en www.fravega.com.ar y/o www.fravega.com son válidos exclusivamente para la compra vía internet en las páginas antes mencionadas. Las especificaciones técnicas y descripciones están sujetas a cambios sin previo aviso.</h12></p>
+            </div>
+            </div>
+            <div class="col-3"><img src="img/certificado.jpg" alt=""></div>
+            <div class="col-3"><img src="img/data-fiscal.png" alt=""></div> 
+            </div>
+        </div>
+    </footer>
     <script type="text/javascript" src="./js/shop.js"></script>
     <script type="text/javascript" src="./js/view.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body>
+    <script type="text/javascript">
+    view.buildItemsFromCart();
+    view.buildSecondFromCart();
+    </script>
+  </body>
 </html>
