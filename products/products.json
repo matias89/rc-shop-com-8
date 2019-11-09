@@ -525,7 +525,7 @@
             "price":  34000,
             "discount": 30,
             "description": "",
-            "images": ["/samsungtv/samsung_1.jpg", "./samsungtv/samsung_2.jpg", "./samsungtv/samsung_3.jpg", "./samsungtv/samsung_4.jpg"],
+            "images": ["./samsungtv/samsung_1.jpg", "./samsungtv/samsung_2.jpg", "./samsungtv/samsung_3.jpg", "./samsungtv/samsung_4.jpg"],
             "details": [{
                 "type": "camera",
                 "value": false
