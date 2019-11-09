@@ -151,8 +151,6 @@ const toggleModal = () => {
             divRow1.appendChild(h3);
             divRow1.appendChild(hrLine);
             const divRow2 = createElement('div', false, 'container')
-
-
         }
     }
     
@@ -399,9 +397,3 @@ const toggleModal = () => {
         buildSecondFromCart
     }
 })(shop);
-<<<<<<< HEAD
-
-view.showModal();
-view.testMethod();
-=======
->>>>>>> cc9b99416c3f810818eb4bdf8acd59a6e767bde3
