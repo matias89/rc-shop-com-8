@@ -146,31 +146,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4" id="detail">
-                <div class="row">
-                    <img src="https://fravega.vteximg.com.br/arquivos/brand-samsung.png" alt="">
-                    <h3>CELULAR LIBRE SAMSUNG GALAXY A30 AZUL</h3>
-                </div>
-                <hr>
-                <div class="container">
-                    <div class="row">
-                        <p>Precio en un pago</p>
-                    </div>
-                    <div class="row">
-                        <h3>$125999</h3>
-                    </div>                    
-                    <div class="row mt-2">
-                        <div class="col-sm-2">
-                            <img src="http://fravega.com/arquivos/full-card-visa.png" alt="">
-                        </div>
-                        <div class="col-sm-10">
-                            <h6 class="pt-2">12 cuotas sin interés de $2166,58</h6>
-                        </div>
-                    </div>                    
-                    <div class="row mt-5">
-                        <button class="btn btn-primary btn-block">COMPRAR</button>
-                    </div>                   
-                </div>
+            <div class="col-sm-4" id="product-detail">
+                
                 <hr>
             </div>
         </div>    
@@ -271,8 +248,7 @@
     <script type="text/javascript" src="./js/view.js"></script>
     <script type="text/javascript">
     const id = location.hash.substr(1);
-    const requestProduct = shop.getProduct(id);  
-    view.buildCarouselItems();
+    view.buildDetailView(id);
     </script>
 </body>
 </html>
