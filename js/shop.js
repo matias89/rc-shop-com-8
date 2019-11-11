@@ -8,7 +8,7 @@ const shop = (() => {
                         return products;
                     })
             });
-    }
+    }    
     const getProduct = id => {
         return fetch(`http://localhost:3000/products/${id}`)
             .then(response => {
