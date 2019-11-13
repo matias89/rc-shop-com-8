@@ -147,8 +147,6 @@ const toggleModal = () => {
             divRow1.appendChild(h3);
             divRow1.appendChild(hrLine);
             const divRow2 = createElement('div', false, 'container')
-
-
         }
     }
     
