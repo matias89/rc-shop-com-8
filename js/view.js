@@ -28,6 +28,9 @@ const view = (shop => {
             if (type === 'number') {
                 element.min = 1;
             }
+            if (content) {
+                element.value = content;
+            }
             element.placeholder = placeholder;
             element.id = id;
         } 
@@ -39,8 +42,8 @@ const view = (shop => {
         if (elementType === 'img') {
             element.src = src;
         }
-        if (elementType === 'p' || elementType === 'h1' || elementType === 'h2' || elementType === 'h3' ||
-            elementType === 'h4' || elementType === 'h5' || elementType === 'h6' || elementType === 'a' || elementType === 'button' || elementType === 'td' || elementType === 'div' ) {
+        if ((elementType === 'p' || elementType === 'h1' || elementType === 'h2' || elementType === 'h3' ||
+            elementType === 'h4' || elementType === 'h5' || elementType === 'h6' || elementType === 'a' || elementType === 'button' || elementType === 'td' || elementType === 'div') && content ) {
             element.innerHTML = content;
         }
         return element;
@@ -105,6 +108,7 @@ const view = (shop => {
         return _spinner
     }
     const showSpinner = () => {
+        createSpinner();
         const _spinner = document.getElementById('spinner');
         _spinner.classList.remove('d-none');
     }
@@ -239,17 +243,24 @@ const toggleModal = () => {
                 
     const buildItemsFromCart = () => {
         const tBody = document.getElementById('product-list-from-cart');
-        for (let i = 0; i < 10; i++) {
-            const item = buildItemFromCart('Product Name ' + i, '2090', i);
+        const productsFromCart = shop.getProductsCart();
+        for (let i = 0; i < productsFromCart.length; i++) {
+            const product = productsFromCart[i];
+            let img = './images/default-img.jpg';
+            if (product.images.length) {
+                img = `products/${product.images[0]}`;
+            }
+            const item = buildItemFromCart(`${product.brand} ${product.model}`, product.price, product.id, product.cant, img);
             tBody.appendChild(item);
         }
     }
 
-    const buildItemFromCart = (productName, price, id) => {
+    const buildItemFromCart = (productName, price, id, cant, prodImage) => {
         const inputEvents = [{
             type: 'onchange',
-            method: ev => {
-                // shop.updateProduct(id, parseInt(ev.target.value));
+            method: event => {
+                const v = event.target.value;
+                shop.updateProduct(id, v);
             }
         }];
         const buttonEvents = [{
@@ -258,17 +269,18 @@ const toggleModal = () => {
                 if(confirm('Realmente deseas quitar el producto?')) {
                     const myRow = document.getElementById('row_item_' + id);
                     myRow.style.display = 'none';
-                    // shop.removeProduct(id, parseInt(ev.target.value));
+                    shop.removeProduct(id);
                 }
             }
         }];
         const tr = createElement('tr', 'row_item_' + id);
         const td1 = createElement('td');
-        const img = createElement('img', false, false, false, false, false, false, 'https://fravega.vteximg.com.br/arquivos/ids/6188223-100-100/Heladera-No-Frost-Electrolux-DF3900P-345Lt-160299.jpg?v=637069347225230000');
+        const img = createElement('img', false, 'img-fluid', false, false, false, false, prodImage);
         td1.appendChild(img);
         const td2 = createElement('td', false, false, false, false, productName);
         const td3 = createElement('td');
-        const input = createElement('input', false, 'form-control', inputEvents, 'cantidad', false, false, false, 'number');
+        const input = createElement('input', false, 'form-control', inputEvents, 'cantidad', cant, false, false, 'number');
+        input.style.width = '60px';
         td3.appendChild(input);
         const td4 = createElement('td', false, false, false, false, `$${price}`);
         const td5 = createElement('td');
@@ -297,17 +309,23 @@ const toggleModal = () => {
         }];
         const buttonevent3 = [{
             type: 'onclick',
-            method: c => {
-                shop.clearproducts();
+            method: () => {
+                //shop.clearproducts();
+                console.log('>>> ToggleModal');
+                toggleModal();
             }
         }]
         const viewbutton = document.getElementById('view_button');
-        const btn1 = createElement('button', false, 'btn btn-primary px-3 mt-3', buttonevent1, false, 'Finalizar Compra', false, false, 'button');
+        const btn1 = createElement('button', false, 'btn btn-primary px-3 mt-3', buttonevent3, false, 'Finalizar Compra', false, false , 'button');
         const btn2 = createElement('button', false, 'btn btn-outline-primary px-3 mt-3', buttonevent2, false, 'Seguir comprando');
         const btn3 = createElement('button', false, 'btn btn-light px-3 mt-3', false, false, 'Cancelar Compra', false, false, false);
         viewbutton.appendChild(btn1);
         viewbutton.appendChild(btn2);
         viewbutton.appendChild(btn3);
+    }
+
+    const addProductToCart = () => {
+        console.log('TEST');
     }
 
     const buildDetailView = id => {
@@ -318,7 +336,9 @@ const toggleModal = () => {
             let detail = '';
             for (let i = 0; i < product.details.length; i++) {
                 const d = product.details[i];
-                detail = `${detail} - ${d.type}: ${d.value}`;
+                if (d.value) {
+                    detail = `${detail} - ${d.type}: ${d.value}`;
+                }
             }
             const content = `
                 <h3>${product.brand} ${product.model}</h3>
@@ -334,15 +354,20 @@ const toggleModal = () => {
                         <div class="col-sm-8">
                             <h6 class="pt-2">${product.payment.payments} cuotas sin interés de $${product.payment.price_payment}</h6>
                         </div>
-                    </div>                    
-                    <div class="row mt-5">
-                        <button class="btn btn-primary btn-block">COMPRAR</button>
-                    </div>                   
+                    </div>                
                 </div>
             `;
+            const myEvent = [{
+                type: 'onclick',
+                method: () => {
+                    shop.addProduct(product);
+                    location.replace('./cart.html');
+                }
+            }];
             const el = createElement('div', false, false, false, false, content);
-            console.log('>>>>', el, r);
+            const btn = createElement('button', false, 'btn btn-primary btn-block', myEvent, false, 'Comprar');
             r.appendChild(el);
+            r.appendChild(btn);
         });
     }
     return {
@@ -356,6 +381,7 @@ const toggleModal = () => {
         createDetailView,
         buildItemsFromCart,
         buildSecondFromCart,
-        buildDetailView
+        buildDetailView,
+        addProductToCart
     }
 })(shop);
