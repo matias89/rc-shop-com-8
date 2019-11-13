@@ -58,7 +58,7 @@ const view = (shop => {
         const _modalHeader = createElement('div', 'modalHeader', 'modal-header');
         const _modalBody = createElement('div', 'modalBody', 'modal-body');
         const _modalFooter = createElement('div', 'modalFooter', 'modal-footer');
-        const _modalImage = createElement('img', 'modalImage', 'w-50 m-auto');
+        const _modalImage = createElement('img', 'modalImage', 'img-fluid m-auto');
         const _modalMessage = createElement('h3', 'modalMessage', 'text-justify, font-weight-bold', );
         const closeModal = createElement('button', 'modalBtn', 'btn btn-danger close', false, false, 'Continue');
         closeModal.type = 'button';
@@ -68,6 +68,7 @@ const view = (shop => {
         _modalRow.appendChild(_modalCol);
         _modalCol.appendChild(_modalBox);
         _modalBox.appendChild(_modalDialog)
+        _modalDialog.appendChild(_modalContent);
         _modalContent.appendChild(_modalHeader);
         _modalContent.appendChild(_modalBody);
         _modalContent.appendChild(_modalFooter);
@@ -78,7 +79,7 @@ const view = (shop => {
         return _modalRow;
     }
     //This function modified content inside the modal
-    const showModal = status => {
+    const showModal = (status) => {
         const modal = createModal();
         const _modalImage = document.getElementById('modalImage');
         const _modalMessage = document.getElementById('modalMessage');
@@ -88,15 +89,15 @@ const view = (shop => {
                 _modalImage.src = './img/success.png';
                 _modalMessage.classList.add('text-success');
                 _modalMessage.innerHTML = 'Su compra ha sido un éxito';
+                _modalBtn.textContent = 'Continue';
             }
-            _modalBtn.textContent = 'Continue';
         } else {
             if (_modalMessage) {
                 _modalImage.src = './img/error.png';
                 _modalMessage.classList.add('text-danger');
                 _modalMessage.innerHTML = 'Ocurrió un error, intente de nuevo.';
+                _modalBtn.textContent = 'Intente de Nuevo';
             }
-            _modalBtn.textContent = 'Intente de Nuevo';
         }
         return modal;
     }
@@ -108,7 +109,7 @@ const view = (shop => {
         return _spinner
     }
     const showSpinner = () => {
-        createSpinner();
+        createSpinner()
         const _spinner = document.getElementById('spinner');
         _spinner.classList.remove('d-none');
     }
@@ -119,29 +120,23 @@ const view = (shop => {
 // Promise to simulate buying process
 const toggleModal = () => {
     showSpinner();
-    return new Promise((resolve, reject) => {
+    const promise = new Promise((resolve, reject) => {
         const num = (new Date()).toLocaleTimeString().substr(-1);
+        console.log(num)
         setTimeout(() => {
             hideSpinner();
-        }, 1500)
-        if (num > 5) {
-            resolve();
-        } else {
-            reject(error);
-        }
+            if (num > 5) {
+                resolve();
+            } else {
+                reject();
+            }
+        }, 2000)
     })
-<<<<<<< HEAD
-}
-    const createItem = () => {
-        const divContainer = createElement('div', false, 'carousel-item');
-        const img = createElement('img', false, 'd-block w-100', false, false, 'https://fravega.vteximg.com.br/arquivos/ids/6191779-1000-1000/celular-liberado-samsung-galaxy-s10e-azul-781304.jpg');
-=======
-
+    return promise;
 }
     const createItem = (isActive = '', imgPath) => {
         const divContainer = createElement('div', false, 'carousel-item ' + isActive);
         const img = createElement('img', false, 'd-block w-100', false, false, false, false, `products/${imgPath}`);
->>>>>>> 8528ea3bf382cf829baf46a6a979b349641869c3
         divContainer.appendChild(img);
         const divSubContainer = createElement('div',false,'carousel-caption d-none d-md-block');
         divContainer.appendChild(divSubContainer);
@@ -206,8 +201,6 @@ const toggleModal = () => {
         //cardId.appendChild(cardDeck);
         return cardContainer
     }
-<<<<<<< HEAD
-=======
 
     const buildCarouselItems = (images) => {
         const renderArea = document.getElementById('productDetail');
@@ -319,13 +312,13 @@ const toggleModal = () => {
         const buttonevent3 = [{
             type: 'onclick',
             method: () => {
-                //shop.clearproducts();
-                console.log('>>> ToggleModal');
                 toggleModal();
             }
         }]
         const viewbutton = document.getElementById('view_button');
         const btn1 = createElement('button', false, 'btn btn-primary px-3 mt-3', buttonevent3, false, 'Finalizar Compra', false, false , 'button');
+        btn1.setAttribute("data-toggle", "modal")
+        btn1.setAttribute("data-target", "#modalBox")
         const btn2 = createElement('button', false, 'btn btn-outline-primary px-3 mt-3', buttonevent2, false, 'Seguir comprando');
         const btn3 = createElement('button', false, 'btn btn-light px-3 mt-3', false, false, 'Cancelar Compra', false, false, false);
         viewbutton.appendChild(btn1);
@@ -379,14 +372,15 @@ const toggleModal = () => {
             r.appendChild(btn);
         });
     }
->>>>>>> 8528ea3bf382cf829baf46a6a979b349641869c3
     return {
         createModal,
         createElement,
         toggleModal,
         showModal,
         buildCarouselItems,
+        buildItemFromCart,
         createSpinner,
+        hideSpinner,
         createProductsRow,
         createDetailView,
         buildItemsFromCart,
@@ -394,8 +388,6 @@ const toggleModal = () => {
         buildDetailView,
         addProductToCart
     }
-<<<<<<< HEAD
 })(shop);
-=======
-})(shop);
->>>>>>> 8528ea3bf382cf829baf46a6a979b349641869c3
+
+
