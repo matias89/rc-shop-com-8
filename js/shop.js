@@ -8,28 +8,28 @@ const shop = (() => {
                         return products;
                     })
             });
-    }
+    }    
     const getProduct = id => {
-        fetch(`http://localhost:3000/products/${id}`)
+        return fetch(`http://localhost:3000/products/${id}`)
             .then(response => {
-                response.json()
+                return response.json()
                     .then(products => {
-                        // console.log(products);
-                    })
+                        return products;
+                    });
             });
     }
-    const testMethod = () => {
-        return 'Hello World!';
-    }
     const addProduct = (product) => {
-        product.cant = 1; 
-        const products = getItem(shopKey);
+        const productExists = updateProduct(product.id);
+        if (!productExists) {
+            product.cant = 1;
+            const products = getItem(shopKey);
             if (products) {
                 products.push(product);
                 setItem(shopKey, products);
             } else {
                 setItem(shopKey, [product]);
-            }  
+            }
+        }
     }
     const removeProduct = (id) => {
         const products = getItem(shopKey);
@@ -39,22 +39,30 @@ const shop = (() => {
                 c = i;
             }
         }
-        console.log(products);
         if (c) {
             products.splice(c, 1);
+            setItem(shopKey, products);
         }
-        console.log(products);
-        setItem(shopKey, products);
     }
-    const updateProduct = (id,j) => {
+    const updateProduct = (id, cant) => {
         const products = getItem(shopKey);
-        for( let i = 0; i < products.length; i++){
-            if(products[i].id === id ){
-                products[i].cant = j;
+        let flag = false;
+        if (products) {
+            for( let i = 0; i < products.length; i++){
+                if(products[i].id === id ){
+                    if (cant) {
+                        products[i].cant = cant;
+                    } else {
+                        products[i].cant = products[i].cant + 1;
+                    }
+                    flag = true;
+                }
+            }
+            if (flag) {
+                setItem(shopKey,products);
             }
         }
-        setItem(shopKey,products);
-        console.log(products);
+        return flag;
    }
    const clearproducts = () => { 
         const products = getItem(shopKey);
@@ -63,6 +71,9 @@ const shop = (() => {
         }
    }
     const confirmProduct = () => {
+        return getItem(shopKey);
+    }
+    const getProductsCart = () => {
         return getItem(shopKey);
     }
     const setItem = (key,valor) => {
@@ -79,7 +90,7 @@ const shop = (() => {
         updateProduct,
         clearproducts,
         confirmProduct,
-        testMethod
+        getProductsCart
     }
 })();
 // shop.getProducts();
