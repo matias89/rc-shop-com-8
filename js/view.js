@@ -315,12 +315,20 @@ const toggleModal = () => {
                 toggleModal();
             }
         }]
+
+        const buttonevent4 = [{
+            type: 'onclick',
+            method: () => {
+                shop.clearproducts();
+                location.replace('./index.html');
+            }
+        }]
         const viewbutton = document.getElementById('view_button');
         const btn1 = createElement('button', false, 'btn btn-primary px-3 mt-3', buttonevent3, false, 'Finalizar Compra', false, false , 'button');
         btn1.setAttribute("data-toggle", "modal")
         btn1.setAttribute("data-target", "#modalBox")
         const btn2 = createElement('button', false, 'btn btn-outline-primary px-3 mt-3', buttonevent2, false, 'Seguir comprando');
-        const btn3 = createElement('button', false, 'btn btn-light px-3 mt-3', false, false, 'Cancelar Compra', false, false, false);
+        const btn3 = createElement('button', false, 'btn btn-light px-3 mt-3', buttonevent4, false, 'Cancelar Compra', false, false, false);
         viewbutton.appendChild(btn1);
         viewbutton.appendChild(btn2);
         viewbutton.appendChild(btn3);
