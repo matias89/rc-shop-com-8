@@ -60,7 +60,7 @@ const view = (shop => {
         const _modalFooter = createElement('div', 'modalFooter', 'modal-footer');
         const _modalImage = createElement('img', 'modalImage', 'img-fluid m-auto');
         const _modalMessage = createElement('h3', 'modalMessage', 'text-justify, font-weight-bold', );
-        const closeModal = createElement('button', 'modalBtn', 'btn btn-danger close', false, false, 'Continue');
+        const closeModal = createElement('button', 'modalBtn', 'btn btn-danger', false, false, 'Continue');
         closeModal.type = 'button';
         closeModal.setAttribute('data-dismiss', 'modal');
         if (_modalContainer) {
@@ -80,13 +80,14 @@ const view = (shop => {
     }
     //This function modified content inside the modal
     const showModal = (status) => {
-        const modal = createModal();
+        // const modal = createModal();
         const _modalImage = document.getElementById('modalImage');
         const _modalMessage = document.getElementById('modalMessage');
         const _modalBtn = document.getElementById('modalBtn');
         if (status) {
             if (_modalMessage) {
                 _modalImage.src = './img/success.png';
+                _modalImage.style.height = '100px';
                 _modalMessage.classList.add('text-success');
                 _modalMessage.innerHTML = 'Su compra ha sido un éxito';
                 _modalBtn.textContent = 'Continue';
@@ -94,12 +95,12 @@ const view = (shop => {
         } else {
             if (_modalMessage) {
                 _modalImage.src = './img/error.png';
+                _modalImage.style.height = '100px';
                 _modalMessage.classList.add('text-danger');
                 _modalMessage.innerHTML = 'Ocurrió un error, intente de nuevo.';
                 _modalBtn.textContent = 'Intente de Nuevo';
             }
         }
-        return modal;
     }
     const createSpinner = () => {
         const _spinner = createElement('div', 'spinner', 'spinner-border text-primary d-none');
@@ -120,19 +121,18 @@ const view = (shop => {
 // Promise to simulate buying process
 const toggleModal = () => {
     showSpinner();
-    const promise = new Promise((resolve, reject) => {
-        const num = (new Date()).toLocaleTimeString().substr(-1);
-        console.log(num)
+    return new Promise((resolve, reject) => {
+        const num = Math.round(Math.random()*10);
         setTimeout(() => {
-            hideSpinner();
             if (num > 5) {
-                resolve();
+                hideSpinner();
+                resolve(true);
             } else {
-                reject();
+                hideSpinner();
+                reject(false);
             }
         }, 2000)
     })
-    return promise;
 }
     const createItem = (isActive = '', imgPath) => {
         const divContainer = createElement('div', false, 'carousel-item ' + isActive);
@@ -161,8 +161,7 @@ const toggleModal = () => {
         const rowCard = document.getElementById('rowCard');
         for (let i = 0; i < products.length; i++) {
             const product = products[i];
-            const detail = 'This is a description';
-            const card = createCard(product.model, detail, product.price, product.images, product.id);
+            const card = createCard(product.model, product.category, product.price, product.images, product.id);
             rowCard.appendChild(card);
             
         }
@@ -173,9 +172,9 @@ const toggleModal = () => {
         if (images.length) {
             cardImg = `products/${images[0]}`;
         }
-        const cardContainer = createElement('div', '', 'col-4', false, false, false, false);
+        const cardContainer = createElement('div', '', 'col-md-4', false, false, false, false);
         const cardDeck = createElement('div', '', 'card-deck', false, false, false, false);
-        cardDeck.style.marginRight = '10px';
+        // cardDeck.style.marginRight = '10px';
         const card  = createElement('div', '', 'card mb-2', false, false, false, false);
         // card.style.height = '700px';
         const cropImg = createElement('div');
@@ -244,16 +243,27 @@ const toggleModal = () => {
     }
                 
     const buildItemsFromCart = () => {
-        const tBody = document.getElementById('product-list-from-cart');
         const productsFromCart = shop.getProductsCart();
-        for (let i = 0; i < productsFromCart.length; i++) {
-            const product = productsFromCart[i];
-            let img = './images/default-img.jpg';
-            if (product.images.length) {
-                img = `products/${product.images[0]}`;
+        const a = document.getElementById('show-products-list-void');
+        const b = document.getElementById('show-products-list');
+        if (productsFromCart && productsFromCart.length) {
+            a.style.display = 'none';
+            buildSecondFromCart();
+            const tBody = document.getElementById('product-list-from-cart');
+            const productsFromCart = shop.getProductsCart();
+            for (let i = 0; i < productsFromCart.length; i++) {
+                const product = productsFromCart[i];
+                let img = './images/default-img.jpg';
+                if (product.images.length) {
+                    img = `products/${product.images[0]}`;
+                }
+                const item = buildItemFromCart(`${product.brand} ${product.model}`, product.price, product.id, product.cant, img);
+                tBody.appendChild(item);
             }
-            const item = buildItemFromCart(`${product.brand} ${product.model}`, product.price, product.id, product.cant, img);
-            tBody.appendChild(item);
+        } else {
+            console.log(b);
+            a.style.display = 'block';
+            b.style.display = 'none';
         }
     }
 
@@ -312,7 +322,15 @@ const toggleModal = () => {
         const buttonevent3 = [{
             type: 'onclick',
             method: () => {
-                toggleModal();
+                toggleModal()
+                .then(status => {
+                    console.log('>>> then', status);
+                    showModal(status)
+                })
+                .catch(error => {
+                    console.log('>>> catch', error);
+                    showModal();
+                })
             }
         }]
 
@@ -324,11 +342,11 @@ const toggleModal = () => {
             }
         }]
         const viewbutton = document.getElementById('view_button');
-        const btn1 = createElement('button', false, 'btn btn-primary px-3 mt-3', buttonevent3, false, 'Finalizar Compra', false, false , 'button');
+        const btn1 = createElement('button', false, 'btn btn-success btn-block px-3 mt-3', buttonevent3, false, 'Finalizar Compra', false, false , 'button');
         btn1.setAttribute("data-toggle", "modal")
         btn1.setAttribute("data-target", "#modalBox")
-        const btn2 = createElement('button', false, 'btn btn-outline-primary px-3 mt-3', buttonevent2, false, 'Seguir comprando');
-        const btn3 = createElement('button', false, 'btn btn-light px-3 mt-3', buttonevent4, false, 'Cancelar Compra', false, false, false);
+        const btn2 = createElement('button', false, 'btn btn-primary btn-block px-3 mt-3', buttonevent2, false, 'Seguir comprando');
+        const btn3 = createElement('button', false, 'btn btn-danger px-3 btn-block mt-3', buttonevent4, false, 'Cancelar Compra', false, false, false);
         viewbutton.appendChild(btn1);
         viewbutton.appendChild(btn2);
         viewbutton.appendChild(btn3);

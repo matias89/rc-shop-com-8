@@ -1,7 +1,8 @@
 const shop = (() => {
     const shopKey = 'products';
+    const API_URL = 'http://localhost:3001';
     const getProducts = () => {
-        return fetch('http://localhost:3000/products')
+        return fetch(`${API_URL}/products`)
             .then(response => {
                 return response.json()
                     .then(products => {
@@ -10,7 +11,7 @@ const shop = (() => {
             });
     }    
     const getProduct = id => {
-        return fetch(`http://localhost:3000/products/${id}`)
+        return fetch(`${API_URL}/products/${id}`)
             .then(response => {
                 return response.json()
                     .then(products => {
